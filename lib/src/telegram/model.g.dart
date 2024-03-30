@@ -295,6 +295,9 @@ ChatAdministratorRights _$ChatAdministratorRightsFromJson(
       canPromoteMembers: json['can_promote_members'] as bool? ?? false,
       canChangeInfo: json['can_change_info'] as bool? ?? false,
       canInviteUsers: json['can_invite_users'] as bool? ?? false,
+      canPostStories: json['can_post_stories'] as bool? ?? false,
+      canEditStories: json['can_edit_stories'] as bool? ?? false,
+      canDeleteStories: json['can_delete_stories'] as bool? ?? false,
       canPostMessages: json['can_post_messages'] as bool?,
       canEditMessages: json['can_edit_messages'] as bool?,
       canPinMessages: json['can_pin_messages'] as bool?,
@@ -312,6 +315,9 @@ Map<String, dynamic> _$ChatAdministratorRightsToJson(
     'can_promote_members': instance.canPromoteMembers,
     'can_change_info': instance.canChangeInfo,
     'can_invite_users': instance.canInviteUsers,
+    'can_post_stories': instance.canPostStories,
+    'can_edit_stories': instance.canEditStories,
+    'can_delete_stories': instance.canDeleteStories,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -419,6 +425,9 @@ ChatMemberAdministrator _$ChatMemberAdministratorFromJson(
       canPromoteMembers: json['can_promote_members'] as bool? ?? false,
       canChangeInfo: json['can_change_info'] as bool? ?? false,
       canInviteUsers: json['can_invite_users'] as bool? ?? false,
+      canPostStories: json['can_post_stories'] as bool? ?? false,
+      canEditStories: json['can_edit_stories'] as bool? ?? false,
+      canDeleteStories: json['can_delete_stories'] as bool? ?? false,
       canPostMessages: json['can_post_messages'] as bool?,
       canEditMessages: json['can_edit_messages'] as bool?,
       canPinMessages: json['can_pin_messages'] as bool?,
@@ -440,6 +449,9 @@ Map<String, dynamic> _$ChatMemberAdministratorToJson(
     'can_promote_members': instance.canPromoteMembers,
     'can_change_info': instance.canChangeInfo,
     'can_invite_users': instance.canInviteUsers,
+    'can_post_stories': instance.canPostStories,
+    'can_edit_stories': instance.canEditStories,
+    'can_delete_stories': instance.canDeleteStories,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -4478,7 +4490,9 @@ Map<String, dynamic> _$WebhookInfoToJson(WebhookInfo instance) {
 
 WriteAccessAllowed _$WriteAccessAllowedFromJson(Map<String, dynamic> json) =>
     WriteAccessAllowed(
+      fromRequest: json['from_request'] as bool?,
       webAppName: json['web_app_name'] as String?,
+      fromAttachmentMenu: json['from_attachment_menu'] as bool?,
     );
 
 Map<String, dynamic> _$WriteAccessAllowedToJson(WriteAccessAllowed instance) {
@@ -4490,6 +4504,8 @@ Map<String, dynamic> _$WriteAccessAllowedToJson(WriteAccessAllowed instance) {
     }
   }
 
+  writeNotNull('from_request', instance.fromRequest);
   writeNotNull('web_app_name', instance.webAppName);
+  writeNotNull('from_attachment_menu', instance.fromAttachmentMenu);
   return val;
 }
