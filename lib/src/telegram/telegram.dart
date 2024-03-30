@@ -1239,6 +1239,9 @@ class Telegram {
       bool? canPromoteMembers,
       bool? canChangeInfo,
       bool? canInviteUsers,
+      bool? canPostStories,
+      bool? canEditStories,
+      bool? canDeleteStories,
       bool? canPinMessages,
       bool? canManageTopics}) async {
     if (chatId is! String && chatId is! int) {
@@ -1259,6 +1262,9 @@ class Telegram {
       'can_promote_members': canPromoteMembers,
       'can_change_info': canChangeInfo,
       'can_invite_users': canInviteUsers,
+      'can_post_stories': canPostStories,
+      'can_edit_stories': canEditStories,
+      'can_delete_stories': canDeleteStories,
       'can_pin_messages': canPinMessages,
       'can_manage_topics': canManageTopics,
     };

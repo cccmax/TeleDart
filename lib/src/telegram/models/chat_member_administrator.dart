@@ -38,6 +38,9 @@ class ChatMemberAdministrator implements ChatMember {
   bool canPromoteMembers;
   bool canChangeInfo;
   bool canInviteUsers;
+  bool canPostStories;
+  bool canEditStories;
+  bool canDeleteStories;
   bool? canPostMessages;
   bool? canEditMessages;
   bool? canPinMessages;
@@ -56,6 +59,9 @@ class ChatMemberAdministrator implements ChatMember {
     this.canPromoteMembers = false,
     this.canChangeInfo = false,
     this.canInviteUsers = false,
+    this.canPostStories = false,
+    this.canEditStories = false,
+    this.canDeleteStories = false,
     this.canPostMessages,
     this.canEditMessages,
     this.canPinMessages,
