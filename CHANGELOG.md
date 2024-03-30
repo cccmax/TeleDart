@@ -1,3 +1,7 @@
+## unreleased
+
+- support Telegram API 6.9
+
 ## 0.6.1
 
 - Fixed Dart doc generation errors
