@@ -859,13 +859,22 @@ Map<String, dynamic> _$ContactToJson(Contact instance) {
 
 Dice _$DiceFromJson(Map<String, dynamic> json) => Dice(
       value: json['value'] as int,
-      emoji: json['emoji'] as String,
+      emoji: $enumDecode(_$DiceEmojiEnumMap, json['emoji']),
     );
 
 Map<String, dynamic> _$DiceToJson(Dice instance) => <String, dynamic>{
       'value': instance.value,
-      'emoji': instance.emoji,
+      'emoji': _$DiceEmojiEnumMap[instance.emoji]!,
     };
+
+const _$DiceEmojiEnumMap = {
+  DiceEmoji.dice: '🎲',
+  DiceEmoji.dart: '🎯',
+  DiceEmoji.bowling: '🎳',
+  DiceEmoji.basketball: '🏀',
+  DiceEmoji.football: '⚽',
+  DiceEmoji.slotMachine: '🎰',
+};
 
 Document _$DocumentFromJson(Map<String, dynamic> json) => Document(
       fileId: json['file_id'] as String,

@@ -573,7 +573,8 @@ class TeleDartMessage extends Message {
   Future<Message> replyDice({
     int? messageThreadId,
     bool withQuote = false,
-    String emoji = Dice.emojiDice,
+    // String emoji = Dice.emojiDice,
+    DiceEmoji emoji = DiceEmoji.dice,
     bool? disableNotification,
     bool? allowSendingWithoutReply,
     ReplyMarkup? replyMarkup,

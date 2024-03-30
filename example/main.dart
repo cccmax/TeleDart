@@ -31,6 +31,7 @@ Future<void> main() async {
   // Sick of boilerplates? Reply messages like below, nice and tidy
   // Short hands also available for answer query methods
   teledart.onCommand('glory').listen((message) => message.reply('to Ukraine!'));
+  teledart.onCommand('dice').listen((message) => message.replyDice(emoji: DiceEmoji.slotMachine));
 
   // You can also utilise regular expressions
   teledart
