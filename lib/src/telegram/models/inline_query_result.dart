@@ -79,21 +79,6 @@ extension InlineQueryResultTypeExtenson on InlineQueryResultType {
 /// https://core.telegram.org/bots/api#inlinequeryresult
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InlineQueryResult {
-  static const typeArticle = 'article';
-  static const typeAudio = 'audio';
-  static const typeDocument = 'document';
-  static const typeGif = 'gif';
-  static const typeMpeg4Gif = 'mpeg4_gif';
-  static const typePhoto = 'photo';
-  static const typeSticker = 'sticker';
-  static const typeVideo = 'video';
-  static const typeVoice = 'voice';
-  static const typeContact = 'contact';
-  static const typeGame = 'game';
-  static const typeLocation = 'location';
-  static const typeVenue = 'venue';
-
-  // String type;
   InlineQueryResultType type;
   String id;
   InlineKeyboardMarkup? replyMarkup;
