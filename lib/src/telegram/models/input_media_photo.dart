@@ -24,7 +24,7 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InputMediaPhoto implements InputMedia {
   @override
-  String type;
+  InputMediaType type;
   @override
   String media;
   @override
@@ -40,7 +40,7 @@ class InputMediaPhoto implements InputMedia {
   MultipartFile? mediaFile;
 
   InputMediaPhoto({
-    this.type = InputMedia.typePhoto,
+    this.type = InputMediaType.photo,
     required this.media,
     this.caption,
     this.parseMode,

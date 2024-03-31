@@ -24,7 +24,7 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InputMediaDocument implements InputMediaWithThumbnail {
   @override
-  String type;
+  InputMediaType type;
   @override
   String media;
   @override
@@ -45,7 +45,7 @@ class InputMediaDocument implements InputMediaWithThumbnail {
   MultipartFile? thumbnailFile;
 
   InputMediaDocument({
-    this.type = InputMedia.typeDocument,
+    this.type = InputMediaType.document,
     required this.media,
     this.thumbnail,
     this.caption,
@@ -83,7 +83,7 @@ class InputMediaDocument implements InputMediaWithThumbnail {
     bool? disableContentTypeDetection,
   }) =>
       InputMediaDocument(
-        type: InputMedia.typeDocument,
+        type: InputMediaType.document,
         media: media,
         thumbnail: 'attach://${thumbnail.path}',
         caption: caption,

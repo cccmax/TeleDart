@@ -24,7 +24,7 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InputMediaAudio implements InputMediaWithThumbnail {
   @override
-  String type;
+  InputMediaType type;
   @override
   String media;
   @override
@@ -47,7 +47,7 @@ class InputMediaAudio implements InputMediaWithThumbnail {
   MultipartFile? thumbnailFile;
 
   InputMediaAudio({
-    this.type = InputMedia.typeAudio,
+    this.type = InputMediaType.audio,
     required this.media,
     this.thumbnail,
     this.caption,

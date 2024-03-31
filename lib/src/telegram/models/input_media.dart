@@ -18,6 +18,24 @@
 
 part of '../model.dart';
 
+@JsonEnum()
+enum InputMediaType {
+  @JsonValue('animation')
+  animation,
+  @JsonValue('audio')
+  audio,
+  @JsonValue('document')
+  document,
+  @JsonValue('photo')
+  photo,
+  @JsonValue('video')
+  video,
+}
+
+extension InputMediaTypeExtenson on InputMediaType {
+  String value() => _$InputMediaTypeEnumMap[this]!;
+}
+
 /// This object represents the content of a media message to be sent.
 ///
 /// It should be one of
@@ -30,13 +48,7 @@ part of '../model.dart';
 /// https://core.telegram.org/bots/api#inputmedia
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InputMedia {
-  static const typeAnimation = 'animation';
-  static const typeAudio = 'audio';
-  static const typeDocument = 'document';
-  static const typePhoto = 'photo';
-  static const typeVideo = 'video';
-
-  String type;
+  InputMediaType type;
   String media;
   String? caption;
   String? parseMode;

@@ -30,7 +30,7 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InputMediaWithThumbnail implements InputMedia {
   @override
-  String type;
+  InputMediaType type;
   @override
   String media;
   @override
