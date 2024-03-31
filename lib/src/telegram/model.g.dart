@@ -81,52 +81,65 @@ Map<String, dynamic> _$AudioToJson(Audio instance) {
 BotCommandScopeAllChatAdministrators
     _$BotCommandScopeAllChatAdministratorsFromJson(Map<String, dynamic> json) =>
         BotCommandScopeAllChatAdministrators(
-          type: json['type'] as String? ??
-              BotCommandScope.typeAllChatAdministrators,
+          type:
+              $enumDecodeNullable(_$BotCommandScopeTypeEnumMap, json['type']) ??
+                  BotCommandScopeType.allChatAdministrators,
         );
 
 Map<String, dynamic> _$BotCommandScopeAllChatAdministratorsToJson(
         BotCommandScopeAllChatAdministrators instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$BotCommandScopeTypeEnumMap[instance.type]!,
     };
+
+const _$BotCommandScopeTypeEnumMap = {
+  BotCommandScopeType.defaultCommand: 'default',
+  BotCommandScopeType.allPrivateChats: 'all_private_chats',
+  BotCommandScopeType.allGroupChats: 'all_group_chats',
+  BotCommandScopeType.allChatAdministrators: 'all_chat_administrators',
+  BotCommandScopeType.chat: 'chat',
+  BotCommandScopeType.chatAdministrators: 'chat_administrators',
+  BotCommandScopeType.chatMember: 'chat_member',
+};
 
 BotCommandScopeAllGroupChats _$BotCommandScopeAllGroupChatsFromJson(
         Map<String, dynamic> json) =>
     BotCommandScopeAllGroupChats(
-      type: json['type'] as String? ?? BotCommandScope.typeAllGroupChats,
+      type: $enumDecodeNullable(_$BotCommandScopeTypeEnumMap, json['type']) ??
+          BotCommandScopeType.allGroupChats,
     );
 
 Map<String, dynamic> _$BotCommandScopeAllGroupChatsToJson(
         BotCommandScopeAllGroupChats instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$BotCommandScopeTypeEnumMap[instance.type]!,
     };
 
 BotCommandScopeAllPrivateChats _$BotCommandScopeAllPrivateChatsFromJson(
         Map<String, dynamic> json) =>
     BotCommandScopeAllPrivateChats(
-      type: json['type'] as String? ?? BotCommandScope.typeAllPrivateChats,
+      type: $enumDecodeNullable(_$BotCommandScopeTypeEnumMap, json['type']) ??
+          BotCommandScopeType.allPrivateChats,
     );
 
 Map<String, dynamic> _$BotCommandScopeAllPrivateChatsToJson(
         BotCommandScopeAllPrivateChats instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$BotCommandScopeTypeEnumMap[instance.type]!,
     };
 
 BotCommandScopeChatAdministrators _$BotCommandScopeChatAdministratorsFromJson(
         Map<String, dynamic> json) =>
     BotCommandScopeChatAdministrators(
-      type:
-          json['type'] as String? ?? BotCommandScope.typeAllChatAdministrators,
+      type: $enumDecodeNullable(_$BotCommandScopeTypeEnumMap, json['type']) ??
+          BotCommandScopeType.allChatAdministrators,
       chatId: json['chat_id'],
     );
 
 Map<String, dynamic> _$BotCommandScopeChatAdministratorsToJson(
     BotCommandScopeChatAdministrators instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$BotCommandScopeTypeEnumMap[instance.type]!,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -142,14 +155,15 @@ Map<String, dynamic> _$BotCommandScopeChatAdministratorsToJson(
 BotCommandScopeChatMember _$BotCommandScopeChatMemberFromJson(
         Map<String, dynamic> json) =>
     BotCommandScopeChatMember(
-      type: json['type'] as String? ?? BotCommandScope.typeChatMember,
+      type: $enumDecodeNullable(_$BotCommandScopeTypeEnumMap, json['type']) ??
+          BotCommandScopeType.chatMember,
       chatId: json['chat_id'],
     );
 
 Map<String, dynamic> _$BotCommandScopeChatMemberToJson(
     BotCommandScopeChatMember instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$BotCommandScopeTypeEnumMap[instance.type]!,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -164,13 +178,14 @@ Map<String, dynamic> _$BotCommandScopeChatMemberToJson(
 
 BotCommandScopeChat _$BotCommandScopeChatFromJson(Map<String, dynamic> json) =>
     BotCommandScopeChat(
-      type: json['type'] as String? ?? BotCommandScope.typeChat,
+      type: $enumDecodeNullable(_$BotCommandScopeTypeEnumMap, json['type']) ??
+          BotCommandScopeType.chat,
       chatId: json['chat_id'],
     );
 
 Map<String, dynamic> _$BotCommandScopeChatToJson(BotCommandScopeChat instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$BotCommandScopeTypeEnumMap[instance.type]!,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -186,23 +201,24 @@ Map<String, dynamic> _$BotCommandScopeChatToJson(BotCommandScopeChat instance) {
 BotCommandScopeDefault _$BotCommandScopeDefaultFromJson(
         Map<String, dynamic> json) =>
     BotCommandScopeDefault(
-      type: json['type'] as String? ?? BotCommandScope.typeDefault,
+      type: $enumDecodeNullable(_$BotCommandScopeTypeEnumMap, json['type']) ??
+          BotCommandScopeType.defaultCommand,
     );
 
 Map<String, dynamic> _$BotCommandScopeDefaultToJson(
         BotCommandScopeDefault instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$BotCommandScopeTypeEnumMap[instance.type]!,
     };
 
 BotCommandScope _$BotCommandScopeFromJson(Map<String, dynamic> json) =>
     BotCommandScope(
-      type: json['type'] as String,
+      type: $enumDecode(_$BotCommandScopeTypeEnumMap, json['type']),
     );
 
 Map<String, dynamic> _$BotCommandScopeToJson(BotCommandScope instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$BotCommandScopeTypeEnumMap[instance.type]!,
     };
 
 BotCommand _$BotCommandFromJson(Map<String, dynamic> json) => BotCommand(
@@ -411,11 +427,130 @@ Map<String, dynamic> _$ChatLocationToJson(ChatLocation instance) =>
       'address': instance.address,
     };
 
+ReactionType _$ReactionTypeFromJson(Map<String, dynamic> json) => ReactionType(
+      type: $enumDecode(_$ReactionTypeTypeEnumMap, json['type']),
+    );
+
+Map<String, dynamic> _$ReactionTypeToJson(ReactionType instance) =>
+    <String, dynamic>{
+      'type': _$ReactionTypeTypeEnumMap[instance.type]!,
+    };
+
+const _$ReactionTypeTypeEnumMap = {
+  ReactionTypeType.emoji: 'emoji',
+  ReactionTypeType.customEmoji: 'custom_emoji',
+};
+
+ReactionTypeEmoji _$ReactionTypeEmojiFromJson(Map<String, dynamic> json) =>
+    ReactionTypeEmoji(
+      type: $enumDecodeNullable(_$ReactionTypeTypeEnumMap, json['type']) ??
+          ReactionTypeType.emoji,
+      emoji: $enumDecode(_$ReactionEmojiEnumMap, json['emoji']),
+    );
+
+Map<String, dynamic> _$ReactionTypeEmojiToJson(ReactionTypeEmoji instance) =>
+    <String, dynamic>{
+      'type': _$ReactionTypeTypeEnumMap[instance.type]!,
+      'emoji': _$ReactionEmojiEnumMap[instance.emoji]!,
+    };
+
+const _$ReactionEmojiEnumMap = {
+  ReactionEmoji.thumbsUp: '👍',
+  ReactionEmoji.thumbsDown: '👎',
+  ReactionEmoji.heart: '❤',
+  ReactionEmoji.fire: '🔥',
+  ReactionEmoji.inLove: '🥰',
+  ReactionEmoji.clappingHands: '👏',
+  ReactionEmoji.grinningFace: '😁',
+  ReactionEmoji.thinkingFace: '🤔',
+  ReactionEmoji.mindBlown: '🤯',
+  ReactionEmoji.screamingInFear: '😱',
+  ReactionEmoji.swearing: '🤬',
+  ReactionEmoji.crying: '😢',
+  ReactionEmoji.partyPopper: '🎉',
+  ReactionEmoji.starStruck: '🤩',
+  ReactionEmoji.vomiting: '🤮',
+  ReactionEmoji.poo: '💩',
+  ReactionEmoji.prayingHands: '🙏',
+  ReactionEmoji.okHand: '👌',
+  ReactionEmoji.dove: '🕊',
+  ReactionEmoji.clownFace: '🤡',
+  ReactionEmoji.yawningFace: '🥱',
+  ReactionEmoji.woozyFace: '🥴',
+  ReactionEmoji.heartEyes: '😍',
+  ReactionEmoji.whale: '🐳',
+  ReactionEmoji.heartOnFire: '❤‍🔥',
+  ReactionEmoji.newMoonFace: '🌚',
+  ReactionEmoji.hotDog: '🌭',
+  ReactionEmoji.hundredPoints: '💯',
+  ReactionEmoji.rollingOnTheFloorLaughing: '🤣',
+  ReactionEmoji.lightningBolt: '⚡',
+  ReactionEmoji.banana: '🍌',
+  ReactionEmoji.trophy: '🏆',
+  ReactionEmoji.brokenHeart: '💔',
+  ReactionEmoji.raisedEyebrow: '🤨',
+  ReactionEmoji.neutralFace: '😐',
+  ReactionEmoji.strawberry: '🍓',
+  ReactionEmoji.bottleWithPoppingCork: '🍾',
+  ReactionEmoji.kissMark: '💋',
+  ReactionEmoji.middleFinger: '🖕',
+  ReactionEmoji.smilingFaceWithHorns: '😈',
+  ReactionEmoji.sleepingFace: '😴',
+  ReactionEmoji.loudlyCryingFace: '😭',
+  ReactionEmoji.nerdFace: '🤓',
+  ReactionEmoji.ghost: '👻',
+  ReactionEmoji.manTechnologist: '👨‍💻',
+  ReactionEmoji.eyes: '👀',
+  ReactionEmoji.jackOLantern: '🎃',
+  ReactionEmoji.seeNoEvilMonkey: '🙈',
+  ReactionEmoji.smilingFaceWithHalo: '😇',
+  ReactionEmoji.fearfulFace: '😨',
+  ReactionEmoji.handshake: '🤝',
+  ReactionEmoji.writingHand: '✍',
+  ReactionEmoji.huggingFace: '🤗',
+  ReactionEmoji.salutingFace: '🫡',
+  ReactionEmoji.santaClaus: '🎅',
+  ReactionEmoji.christmasTree: '🎄',
+  ReactionEmoji.snowman: '☃',
+  ReactionEmoji.nailPolish: '💅',
+  ReactionEmoji.zanyFace: '🤪',
+  ReactionEmoji.moai: '🗿',
+  ReactionEmoji.cool: '🆒',
+  ReactionEmoji.heartWithArrow: '💘',
+  ReactionEmoji.hearNoEvilMonkey: '🙉',
+  ReactionEmoji.unicorn: '🦄',
+  ReactionEmoji.faceBlowingAKiss: '😘',
+  ReactionEmoji.pill: '💊',
+  ReactionEmoji.speakNoEvilMonkey: '🙊',
+  ReactionEmoji.sunglasses: '😎',
+  ReactionEmoji.alienMonster: '👾',
+  ReactionEmoji.manShrugging: '🤷‍♂️',
+  ReactionEmoji.personShrugging: '🤷',
+  ReactionEmoji.womanShrugging: '🤷‍♀️',
+  ReactionEmoji.poutingFace: '😡',
+};
+
+ReactionTypeCustomEmoji _$ReactionTypeCustomEmojiFromJson(
+        Map<String, dynamic> json) =>
+    ReactionTypeCustomEmoji(
+      type: $enumDecodeNullable(_$ReactionTypeTypeEnumMap, json['type']) ??
+          ReactionTypeType.customEmoji,
+      customEmojiId: json['custom_emoji_id'] as String,
+    );
+
+Map<String, dynamic> _$ReactionTypeCustomEmojiToJson(
+        ReactionTypeCustomEmoji instance) =>
+    <String, dynamic>{
+      'type': _$ReactionTypeTypeEnumMap[instance.type]!,
+      'custom_emoji_id': instance.customEmojiId,
+    };
+
 ChatMemberAdministrator _$ChatMemberAdministratorFromJson(
         Map<String, dynamic> json) =>
     ChatMemberAdministrator(
-      status: json['status'] as String,
       user: User.fromJson(json['user'] as Map<String, dynamic>),
+      status: $enumDecodeNullable(_$ChatMemberStatusEnumMap, json['status']) ??
+          ChatMemberStatus.administrator,
       canBeEdited: json['can_be_edited'] as bool? ?? false,
       isAnonymous: json['is_anonymous'] as bool? ?? false,
       canManageChat: json['can_manage_chat'] as bool? ?? false,
@@ -438,7 +573,7 @@ ChatMemberAdministrator _$ChatMemberAdministratorFromJson(
 Map<String, dynamic> _$ChatMemberAdministratorToJson(
     ChatMemberAdministrator instance) {
   final val = <String, dynamic>{
-    'status': instance.status,
+    'status': _$ChatMemberStatusEnumMap[instance.status]!,
     'user': instance.user.toJson(),
     'can_be_edited': instance.canBeEdited,
     'is_anonymous': instance.isAnonymous,
@@ -468,55 +603,68 @@ Map<String, dynamic> _$ChatMemberAdministratorToJson(
   return val;
 }
 
+const _$ChatMemberStatusEnumMap = {
+  ChatMemberStatus.creator: 'creator',
+  ChatMemberStatus.administrator: 'administrator',
+  ChatMemberStatus.member: 'member',
+  ChatMemberStatus.restricted: 'restricted',
+  ChatMemberStatus.left: 'left',
+  ChatMemberStatus.kicked: 'kicked',
+};
+
 ChatMemberBanned _$ChatMemberBannedFromJson(Map<String, dynamic> json) =>
     ChatMemberBanned(
-      status: json['status'] as String,
       user: User.fromJson(json['user'] as Map<String, dynamic>),
       untilDate: json['until_date'] as int,
+      status: $enumDecodeNullable(_$ChatMemberStatusEnumMap, json['status']) ??
+          ChatMemberStatus.kicked,
     );
 
 Map<String, dynamic> _$ChatMemberBannedToJson(ChatMemberBanned instance) =>
     <String, dynamic>{
-      'status': instance.status,
+      'status': _$ChatMemberStatusEnumMap[instance.status]!,
       'user': instance.user.toJson(),
       'until_date': instance.untilDate,
     };
 
 ChatMemberLeft _$ChatMemberLeftFromJson(Map<String, dynamic> json) =>
     ChatMemberLeft(
-      status: json['status'] as String,
       user: User.fromJson(json['user'] as Map<String, dynamic>),
+      status: $enumDecodeNullable(_$ChatMemberStatusEnumMap, json['status']) ??
+          ChatMemberStatus.left,
     );
 
 Map<String, dynamic> _$ChatMemberLeftToJson(ChatMemberLeft instance) =>
     <String, dynamic>{
-      'status': instance.status,
+      'status': _$ChatMemberStatusEnumMap[instance.status]!,
       'user': instance.user.toJson(),
     };
 
 ChatMemberMember _$ChatMemberMemberFromJson(Map<String, dynamic> json) =>
     ChatMemberMember(
-      status: json['status'] as String,
       user: User.fromJson(json['user'] as Map<String, dynamic>),
+      status: $enumDecodeNullable(_$ChatMemberStatusEnumMap, json['status']) ??
+          ChatMemberStatus.member,
     );
 
 Map<String, dynamic> _$ChatMemberMemberToJson(ChatMemberMember instance) =>
     <String, dynamic>{
-      'status': instance.status,
+      'status': _$ChatMemberStatusEnumMap[instance.status]!,
       'user': instance.user.toJson(),
     };
 
 ChatMemberOwner _$ChatMemberOwnerFromJson(Map<String, dynamic> json) =>
     ChatMemberOwner(
       user: User.fromJson(json['user'] as Map<String, dynamic>),
-      status: json['status'] as String,
       isAnonymous: json['is_anonymous'] as bool,
+      status: $enumDecodeNullable(_$ChatMemberStatusEnumMap, json['status']) ??
+          ChatMemberStatus.creator,
       customTitle: json['custom_title'] as String?,
     );
 
 Map<String, dynamic> _$ChatMemberOwnerToJson(ChatMemberOwner instance) {
   final val = <String, dynamic>{
-    'status': instance.status,
+    'status': _$ChatMemberStatusEnumMap[instance.status]!,
     'user': instance.user.toJson(),
     'is_anonymous': instance.isAnonymous,
   };
@@ -534,8 +682,9 @@ Map<String, dynamic> _$ChatMemberOwnerToJson(ChatMemberOwner instance) {
 ChatMemberRestricted _$ChatMemberRestrictedFromJson(
         Map<String, dynamic> json) =>
     ChatMemberRestricted(
-      status: json['status'] as String,
       user: User.fromJson(json['user'] as Map<String, dynamic>),
+      status: $enumDecodeNullable(_$ChatMemberStatusEnumMap, json['status']) ??
+          ChatMemberStatus.restricted,
       isMember: json['is_member'] as bool? ?? false,
       canChangeInfo: json['can_change_info'] as bool? ?? false,
       canInviteUsers: json['can_invite_users'] as bool? ?? false,
@@ -558,7 +707,7 @@ ChatMemberRestricted _$ChatMemberRestrictedFromJson(
 Map<String, dynamic> _$ChatMemberRestrictedToJson(
     ChatMemberRestricted instance) {
   final val = <String, dynamic>{
-    'status': instance.status,
+    'status': _$ChatMemberStatusEnumMap[instance.status]!,
     'user': instance.user.toJson(),
     'is_member': instance.isMember,
     'can_change_info': instance.canChangeInfo,
@@ -631,13 +780,13 @@ Map<String, dynamic> _$ChatMemberUpdatedToJson(ChatMemberUpdated instance) {
 }
 
 ChatMember _$ChatMemberFromJson(Map<String, dynamic> json) => ChatMember(
-      status: json['status'] as String,
+      status: $enumDecode(_$ChatMemberStatusEnumMap, json['status']),
       user: User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ChatMemberToJson(ChatMember instance) =>
     <String, dynamic>{
-      'status': instance.status,
+      'status': _$ChatMemberStatusEnumMap[instance.status]!,
       'user': instance.user.toJson(),
     };
 
@@ -1238,7 +1387,8 @@ InlineQueryResultArticle _$InlineQueryResultArticleFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultArticle(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeArticle,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.article,
       title: json['title'] as String,
       inputMessageContent: InputMessageContent.fromJson(
           json['input_message_content'] as Map<String, dynamic>),
@@ -1258,7 +1408,7 @@ Map<String, dynamic> _$InlineQueryResultArticleToJson(
     InlineQueryResultArticle instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'title': instance.title,
     'input_message_content': instance.inputMessageContent.toJson(),
   };
@@ -1279,11 +1429,28 @@ Map<String, dynamic> _$InlineQueryResultArticleToJson(
   return val;
 }
 
+const _$InlineQueryResultTypeEnumMap = {
+  InlineQueryResultType.article: 'article',
+  InlineQueryResultType.audio: 'audio',
+  InlineQueryResultType.document: 'document',
+  InlineQueryResultType.gif: 'gif',
+  InlineQueryResultType.mpeg4Gif: 'mpeg4_gif',
+  InlineQueryResultType.photo: 'photo',
+  InlineQueryResultType.sticker: 'sticker',
+  InlineQueryResultType.video: 'video',
+  InlineQueryResultType.voice: 'voice',
+  InlineQueryResultType.contact: 'contact',
+  InlineQueryResultType.game: 'game',
+  InlineQueryResultType.location: 'location',
+  InlineQueryResultType.venue: 'venue',
+};
+
 InlineQueryResultAudio _$InlineQueryResultAudioFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultAudio(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeAudio,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.audio,
       audioUrl: json['audio_url'] as String,
       title: json['title'] as String,
       caption: json['caption'] as String?,
@@ -1307,7 +1474,7 @@ Map<String, dynamic> _$InlineQueryResultAudioToJson(
     InlineQueryResultAudio instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'audio_url': instance.audioUrl,
     'title': instance.title,
   };
@@ -1333,7 +1500,8 @@ InlineQueryResultCachedAudio _$InlineQueryResultCachedAudioFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultCachedAudio(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeAudio,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.article,
       audioFileId: json['audio_file_id'] as String,
       caption: json['caption'] as String?,
       parseMode: json['parse_mode'] as String?,
@@ -1354,7 +1522,7 @@ Map<String, dynamic> _$InlineQueryResultCachedAudioToJson(
     InlineQueryResultCachedAudio instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'audio_file_id': instance.audioFileId,
   };
 
@@ -1377,7 +1545,8 @@ InlineQueryResultCachedDocument _$InlineQueryResultCachedDocumentFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultCachedDocument(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeDocument,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.document,
       title: json['title'] as String,
       documentFileId: json['document_file_id'] as String,
       description: json['description'] as String?,
@@ -1400,7 +1569,7 @@ Map<String, dynamic> _$InlineQueryResultCachedDocumentToJson(
     InlineQueryResultCachedDocument instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'title': instance.title,
     'document_file_id': instance.documentFileId,
   };
@@ -1425,7 +1594,8 @@ InlineQueryResultCachedGif _$InlineQueryResultCachedGifFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultCachedGif(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeGif,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.gif,
       gifFileId: json['gif_file_id'] as String,
       title: json['title'] as String?,
       caption: json['caption'] as String?,
@@ -1447,7 +1617,7 @@ Map<String, dynamic> _$InlineQueryResultCachedGifToJson(
     InlineQueryResultCachedGif instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'gif_file_id': instance.gifFileId,
   };
 
@@ -1471,7 +1641,8 @@ InlineQueryResultCachedMpeg4Gif _$InlineQueryResultCachedMpeg4GifFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultCachedMpeg4Gif(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeMpeg4Gif,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.mpeg4Gif,
       mpeg4FileId: json['mpeg4_file_id'] as String,
       title: json['title'] as String?,
       caption: json['caption'] as String?,
@@ -1493,7 +1664,7 @@ Map<String, dynamic> _$InlineQueryResultCachedMpeg4GifToJson(
     InlineQueryResultCachedMpeg4Gif instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'mpeg4_file_id': instance.mpeg4FileId,
   };
 
@@ -1517,7 +1688,8 @@ InlineQueryResultCachedPhoto _$InlineQueryResultCachedPhotoFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultCachedPhoto(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typePhoto,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.photo,
       photoFileId: json['photo_file_id'] as String,
       title: json['title'] as String?,
       description: json['description'] as String?,
@@ -1540,7 +1712,7 @@ Map<String, dynamic> _$InlineQueryResultCachedPhotoToJson(
     InlineQueryResultCachedPhoto instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'photo_file_id': instance.photoFileId,
   };
 
@@ -1565,7 +1737,8 @@ InlineQueryResultCachedSticker _$InlineQueryResultCachedStickerFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultCachedSticker(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeSticker,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.sticker,
       stickerFileId: json['sticker_file_id'] as String?,
       replyMarkup: json['reply_markup'] == null
           ? null
@@ -1581,7 +1754,7 @@ Map<String, dynamic> _$InlineQueryResultCachedStickerToJson(
     InlineQueryResultCachedSticker instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -1600,7 +1773,8 @@ InlineQueryResultCachedVideo _$InlineQueryResultCachedVideoFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultCachedVideo(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeVideo,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.video,
       videoFileId: json['video_file_id'] as String,
       title: json['title'] as String,
       description: json['description'] as String?,
@@ -1623,7 +1797,7 @@ Map<String, dynamic> _$InlineQueryResultCachedVideoToJson(
     InlineQueryResultCachedVideo instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'video_file_id': instance.videoFileId,
     'title': instance.title,
   };
@@ -1648,7 +1822,8 @@ InlineQueryResultCachedVoice _$InlineQueryResultCachedVoiceFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultCachedVoice(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeVoice,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.voice,
       voiceFileId: json['voice_file_id'] as String,
       title: json['title'] as String,
       caption: json['caption'] as String?,
@@ -1670,7 +1845,7 @@ Map<String, dynamic> _$InlineQueryResultCachedVoiceToJson(
     InlineQueryResultCachedVoice instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'voice_file_id': instance.voiceFileId,
     'title': instance.title,
   };
@@ -1694,7 +1869,8 @@ InlineQueryResultContact _$InlineQueryResultContactFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultContact(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeContact,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.contact,
       phoneNumber: json['phone_number'] as String,
       firstName: json['first_name'] as String,
       lastName: json['last_name'] as String?,
@@ -1716,7 +1892,7 @@ Map<String, dynamic> _$InlineQueryResultContactToJson(
     InlineQueryResultContact instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'phone_number': instance.phoneNumber,
     'first_name': instance.firstName,
   };
@@ -1741,7 +1917,8 @@ InlineQueryResultDocument _$InlineQueryResultDocumentFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultDocument(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeDocument,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.document,
       title: json['title'] as String,
       caption: json['caption'] as String?,
       parseMode: json['parse_mode'] as String?,
@@ -1768,7 +1945,7 @@ Map<String, dynamic> _$InlineQueryResultDocumentToJson(
     InlineQueryResultDocument instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'title': instance.title,
   };
 
@@ -1797,7 +1974,8 @@ InlineQueryResultGame _$InlineQueryResultGameFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultGame(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeGame,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.game,
       gameShortName: json['game_short_name'] as String,
       replyMarkup: json['reply_markup'] == null
           ? null
@@ -1809,7 +1987,7 @@ Map<String, dynamic> _$InlineQueryResultGameToJson(
     InlineQueryResultGame instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'game_short_name': instance.gameShortName,
   };
 
@@ -1827,7 +2005,8 @@ InlineQueryResultGif _$InlineQueryResultGifFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultGif(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeGif,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.gif,
       gifUrl: json['gif_url'] as String,
       gifWidth: json['gif_width'] as int?,
       gifHeight: json['gif_height'] as int?,
@@ -1854,7 +2033,7 @@ Map<String, dynamic> _$InlineQueryResultGifToJson(
     InlineQueryResultGif instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'gif_url': instance.gifUrl,
   };
 
@@ -1883,7 +2062,8 @@ InlineQueryResultLocation _$InlineQueryResultLocationFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultLocation(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeLocation,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.location,
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
       title: json['title'] as String,
@@ -1908,7 +2088,7 @@ Map<String, dynamic> _$InlineQueryResultLocationToJson(
     InlineQueryResultLocation instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'latitude': instance.latitude,
     'longitude': instance.longitude,
     'title': instance.title,
@@ -1936,7 +2116,8 @@ InlineQueryResultMpeg4Gif _$InlineQueryResultMpeg4GifFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultMpeg4Gif(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeMpeg4Gif,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.mpeg4Gif,
       mpeg4Url: json['mpeg4_url'] as String,
       mpeg4Width: json['mpeg4_width'] as int?,
       mpeg4Height: json['mpeg4_height'] as int?,
@@ -1963,7 +2144,7 @@ Map<String, dynamic> _$InlineQueryResultMpeg4GifToJson(
     InlineQueryResultMpeg4Gif instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'mpeg4_url': instance.mpeg4Url,
   };
 
@@ -1992,7 +2173,8 @@ InlineQueryResultPhoto _$InlineQueryResultPhotoFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultPhoto(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typePhoto,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.photo,
       photoUrl: json['photo_url'] as String,
       thumbnailUrl: json['thumbnail_url'] as String,
       photoWidth: json['photo_width'] as int?,
@@ -2018,7 +2200,7 @@ Map<String, dynamic> _$InlineQueryResultPhotoToJson(
     InlineQueryResultPhoto instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'photo_url': instance.photoUrl,
     'thumbnail_url': instance.thumbnailUrl,
   };
@@ -2046,7 +2228,8 @@ InlineQueryResultVenue _$InlineQueryResultVenueFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultVenue(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeVenue,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.venue,
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
       title: json['title'] as String,
@@ -2072,7 +2255,7 @@ Map<String, dynamic> _$InlineQueryResultVenueToJson(
     InlineQueryResultVenue instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'latitude': instance.latitude,
     'longitude': instance.longitude,
     'title': instance.title,
@@ -2101,7 +2284,8 @@ InlineQueryResultVideo _$InlineQueryResultVideoFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultVideo(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeVideo,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.video,
       videoUrl: json['video_url'] as String,
       mimeType: json['mime_type'] as String,
       thumbnailUrl: json['thumbnail_url'] as String,
@@ -2129,7 +2313,7 @@ Map<String, dynamic> _$InlineQueryResultVideoToJson(
     InlineQueryResultVideo instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'video_url': instance.videoUrl,
     'mime_type': instance.mimeType,
     'thumbnail_url': instance.thumbnailUrl,
@@ -2159,7 +2343,8 @@ InlineQueryResultVoice _$InlineQueryResultVoiceFromJson(
         Map<String, dynamic> json) =>
     InlineQueryResultVoice(
       id: json['id'] as String,
-      type: json['type'] as String? ?? InlineQueryResult.typeVoice,
+      type: $enumDecodeNullable(_$InlineQueryResultTypeEnumMap, json['type']) ??
+          InlineQueryResultType.voice,
       voiceUrl: json['voice_url'] as String,
       title: json['title'] as String,
       caption: json['caption'] as String?,
@@ -2182,7 +2367,7 @@ Map<String, dynamic> _$InlineQueryResultVoiceToJson(
     InlineQueryResultVoice instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'voice_url': instance.voiceUrl,
     'title': instance.title,
   };
@@ -2205,7 +2390,7 @@ Map<String, dynamic> _$InlineQueryResultVoiceToJson(
 
 InlineQueryResult _$InlineQueryResultFromJson(Map<String, dynamic> json) =>
     InlineQueryResult(
-      type: json['type'] as String,
+      type: $enumDecode(_$InlineQueryResultTypeEnumMap, json['type']),
       id: json['id'] as String,
       replyMarkup: json['reply_markup'] == null
           ? null
@@ -2215,7 +2400,7 @@ InlineQueryResult _$InlineQueryResultFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$InlineQueryResultToJson(InlineQueryResult instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$InlineQueryResultTypeEnumMap[instance.type]!,
     'id': instance.id,
   };
 
@@ -2409,7 +2594,8 @@ Map<String, dynamic> _$InputLocationMessageContentToJson(
 
 InputMediaAnimation _$InputMediaAnimationFromJson(Map<String, dynamic> json) =>
     InputMediaAnimation(
-      type: json['type'] as String? ?? InputMedia.typeAnimation,
+      type: $enumDecodeNullable(_$InputMediaTypeEnumMap, json['type']) ??
+          InputMediaType.animation,
       media: json['media'] as String,
       thumbnail: json['thumbnail'] as String?,
       caption: json['caption'] as String?,
@@ -2425,7 +2611,7 @@ InputMediaAnimation _$InputMediaAnimationFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$InputMediaAnimationToJson(InputMediaAnimation instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$InputMediaTypeEnumMap[instance.type]!,
     'media': instance.media,
   };
 
@@ -2447,9 +2633,18 @@ Map<String, dynamic> _$InputMediaAnimationToJson(InputMediaAnimation instance) {
   return val;
 }
 
+const _$InputMediaTypeEnumMap = {
+  InputMediaType.animation: 'animation',
+  InputMediaType.audio: 'audio',
+  InputMediaType.document: 'document',
+  InputMediaType.photo: 'photo',
+  InputMediaType.video: 'video',
+};
+
 InputMediaAudio _$InputMediaAudioFromJson(Map<String, dynamic> json) =>
     InputMediaAudio(
-      type: json['type'] as String? ?? InputMedia.typeAudio,
+      type: $enumDecodeNullable(_$InputMediaTypeEnumMap, json['type']) ??
+          InputMediaType.audio,
       media: json['media'] as String,
       thumbnail: json['thumbnail'] as String?,
       caption: json['caption'] as String?,
@@ -2464,7 +2659,7 @@ InputMediaAudio _$InputMediaAudioFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$InputMediaAudioToJson(InputMediaAudio instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$InputMediaTypeEnumMap[instance.type]!,
     'media': instance.media,
   };
 
@@ -2487,7 +2682,8 @@ Map<String, dynamic> _$InputMediaAudioToJson(InputMediaAudio instance) {
 
 InputMediaDocument _$InputMediaDocumentFromJson(Map<String, dynamic> json) =>
     InputMediaDocument(
-      type: json['type'] as String? ?? InputMedia.typeDocument,
+      type: $enumDecodeNullable(_$InputMediaTypeEnumMap, json['type']) ??
+          InputMediaType.document,
       media: json['media'] as String,
       thumbnail: json['thumbnail'] as String?,
       caption: json['caption'] as String?,
@@ -2501,7 +2697,7 @@ InputMediaDocument _$InputMediaDocumentFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$InputMediaDocumentToJson(InputMediaDocument instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$InputMediaTypeEnumMap[instance.type]!,
     'media': instance.media,
   };
 
@@ -2523,7 +2719,8 @@ Map<String, dynamic> _$InputMediaDocumentToJson(InputMediaDocument instance) {
 
 InputMediaPhoto _$InputMediaPhotoFromJson(Map<String, dynamic> json) =>
     InputMediaPhoto(
-      type: json['type'] as String? ?? InputMedia.typePhoto,
+      type: $enumDecodeNullable(_$InputMediaTypeEnumMap, json['type']) ??
+          InputMediaType.photo,
       media: json['media'] as String,
       caption: json['caption'] as String?,
       parseMode: json['parse_mode'] as String?,
@@ -2535,7 +2732,7 @@ InputMediaPhoto _$InputMediaPhotoFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$InputMediaPhotoToJson(InputMediaPhoto instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$InputMediaTypeEnumMap[instance.type]!,
     'media': instance.media,
   };
 
@@ -2555,7 +2752,8 @@ Map<String, dynamic> _$InputMediaPhotoToJson(InputMediaPhoto instance) {
 
 InputMediaVideo _$InputMediaVideoFromJson(Map<String, dynamic> json) =>
     InputMediaVideo(
-      type: json['type'] as String? ?? InputMedia.typeVideo,
+      type: $enumDecodeNullable(_$InputMediaTypeEnumMap, json['type']) ??
+          InputMediaType.video,
       media: json['media'] as String,
       caption: json['caption'] as String?,
       parseMode: json['parse_mode'] as String?,
@@ -2572,7 +2770,7 @@ InputMediaVideo _$InputMediaVideoFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$InputMediaVideoToJson(InputMediaVideo instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$InputMediaTypeEnumMap[instance.type]!,
     'media': instance.media,
   };
 
@@ -2598,7 +2796,7 @@ Map<String, dynamic> _$InputMediaVideoToJson(InputMediaVideo instance) {
 InputMediaWithThumbnail _$InputMediaWithThumbnailFromJson(
         Map<String, dynamic> json) =>
     InputMediaWithThumbnail(
-      type: json['type'] as String,
+      type: $enumDecode(_$InputMediaTypeEnumMap, json['type']),
       media: json['media'] as String,
       thumbnail: json['thumbnail'] as String?,
       caption: json['caption'] as String?,
@@ -2611,7 +2809,7 @@ InputMediaWithThumbnail _$InputMediaWithThumbnailFromJson(
 Map<String, dynamic> _$InputMediaWithThumbnailToJson(
     InputMediaWithThumbnail instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$InputMediaTypeEnumMap[instance.type]!,
     'media': instance.media,
   };
 
@@ -2630,7 +2828,7 @@ Map<String, dynamic> _$InputMediaWithThumbnailToJson(
 }
 
 InputMedia _$InputMediaFromJson(Map<String, dynamic> json) => InputMedia(
-      type: json['type'] as String,
+      type: $enumDecode(_$InputMediaTypeEnumMap, json['type']),
       media: json['media'] as String,
       caption: json['caption'] as String?,
       parseMode: json['parse_mode'] as String?,
@@ -2641,7 +2839,7 @@ InputMedia _$InputMediaFromJson(Map<String, dynamic> json) => InputMedia(
 
 Map<String, dynamic> _$InputMediaToJson(InputMedia instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    'type': _$InputMediaTypeEnumMap[instance.type]!,
     'media': instance.media,
   };
 
@@ -2984,45 +3182,54 @@ Map<String, dynamic> _$MaskPositionToJson(MaskPosition instance) =>
 
 MenuButtonCommands _$MenuButtonCommandsFromJson(Map<String, dynamic> json) =>
     MenuButtonCommands(
-      type: json['type'] as String? ?? MenuButton.typeCommands,
+      type: $enumDecodeNullable(_$MenuButtonTypeEnumMap, json['type']) ??
+          MenuButtonType.commands,
     );
 
 Map<String, dynamic> _$MenuButtonCommandsToJson(MenuButtonCommands instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$MenuButtonTypeEnumMap[instance.type]!,
     };
+
+const _$MenuButtonTypeEnumMap = {
+  MenuButtonType.commands: 'commands',
+  MenuButtonType.webApp: 'web_app',
+  MenuButtonType.defaultButton: 'default',
+};
 
 MenuButtonDefault _$MenuButtonDefaultFromJson(Map<String, dynamic> json) =>
     MenuButtonDefault(
-      type: json['type'] as String? ?? MenuButton.typeDefault,
+      type: $enumDecodeNullable(_$MenuButtonTypeEnumMap, json['type']) ??
+          MenuButtonType.defaultButton,
     );
 
 Map<String, dynamic> _$MenuButtonDefaultToJson(MenuButtonDefault instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$MenuButtonTypeEnumMap[instance.type]!,
     };
 
 MenuButtonWebApp _$MenuButtonWebAppFromJson(Map<String, dynamic> json) =>
     MenuButtonWebApp(
-      type: json['type'] as String? ?? MenuButton.typeWebApp,
+      type: $enumDecodeNullable(_$MenuButtonTypeEnumMap, json['type']) ??
+          MenuButtonType.webApp,
       text: json['text'] as String,
       webApp: WebAppInfo.fromJson(json['web_app'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$MenuButtonWebAppToJson(MenuButtonWebApp instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$MenuButtonTypeEnumMap[instance.type]!,
       'text': instance.text,
       'web_app': instance.webApp.toJson(),
     };
 
 MenuButton _$MenuButtonFromJson(Map<String, dynamic> json) => MenuButton(
-      type: json['type'] as String,
+      type: $enumDecode(_$MenuButtonTypeEnumMap, json['type']),
     );
 
 Map<String, dynamic> _$MenuButtonToJson(MenuButton instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$MenuButtonTypeEnumMap[instance.type]!,
     };
 
 MessageAutoDeleteTimerChanged _$MessageAutoDeleteTimerChangedFromJson(
@@ -3404,7 +3611,7 @@ PassportElementErrorDataField _$PassportElementErrorDataFieldFromJson(
         Map<String, dynamic> json) =>
     PassportElementErrorDataField(
       source: json['source'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
       message: json['message'] as String,
       fieldName: json['field_name'] as String,
       dataHash: json['data_hash'] as String,
@@ -3414,17 +3621,31 @@ Map<String, dynamic> _$PassportElementErrorDataFieldToJson(
         PassportElementErrorDataField instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
       'field_name': instance.fieldName,
       'data_hash': instance.dataHash,
     };
 
+const _$PassportElementErrorTypeEnumMap = {
+  PassportElementErrorType.personalDetails: 'personal_details',
+  PassportElementErrorType.passport: 'passport',
+  PassportElementErrorType.driverLicense: 'driver_license',
+  PassportElementErrorType.identityCard: 'identity_card',
+  PassportElementErrorType.internalPassport: 'internal_passport',
+  PassportElementErrorType.address: 'address',
+  PassportElementErrorType.utilityBill: 'utility_bill',
+  PassportElementErrorType.bankStatement: 'bank_statement',
+  PassportElementErrorType.rentalAgreement: 'rental_agreement',
+  PassportElementErrorType.passportRegistration: 'passport_registration',
+  PassportElementErrorType.temporaryRegistration: 'temporary_registration',
+};
+
 PassportElementErrorFile _$PassportElementErrorFileFromJson(
         Map<String, dynamic> json) =>
     PassportElementErrorFile(
       source: json['source'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
       message: json['message'] as String,
       fileHash: json['file_hash'] as String,
     );
@@ -3433,7 +3654,7 @@ Map<String, dynamic> _$PassportElementErrorFileToJson(
         PassportElementErrorFile instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
       'file_hash': instance.fileHash,
     };
@@ -3442,7 +3663,7 @@ PassportElementErrorFiles _$PassportElementErrorFilesFromJson(
         Map<String, dynamic> json) =>
     PassportElementErrorFiles(
       source: json['source'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
       message: json['message'] as String,
       fileHashes: (json['file_hashes'] as List<dynamic>)
           .map((e) => e as String)
@@ -3453,7 +3674,7 @@ Map<String, dynamic> _$PassportElementErrorFilesToJson(
         PassportElementErrorFiles instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
       'file_hashes': instance.fileHashes,
     };
@@ -3462,7 +3683,7 @@ PassportElementErrorFrontSide _$PassportElementErrorFrontSideFromJson(
         Map<String, dynamic> json) =>
     PassportElementErrorFrontSide(
       source: json['source'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
       message: json['message'] as String,
       fileHash: json['file_hash'] as String,
     );
@@ -3471,7 +3692,7 @@ Map<String, dynamic> _$PassportElementErrorFrontSideToJson(
         PassportElementErrorFrontSide instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
       'file_hash': instance.fileHash,
     };
@@ -3480,7 +3701,7 @@ PassportElementErrorReverseSide _$PassportElementErrorReverseSideFromJson(
         Map<String, dynamic> json) =>
     PassportElementErrorReverseSide(
       source: json['source'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
       message: json['message'] as String,
       fileHash: json['file_hash'] as String,
     );
@@ -3489,7 +3710,7 @@ Map<String, dynamic> _$PassportElementErrorReverseSideToJson(
         PassportElementErrorReverseSide instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
       'file_hash': instance.fileHash,
     };
@@ -3498,7 +3719,7 @@ PassportElementErrorSelfie _$PassportElementErrorSelfieFromJson(
         Map<String, dynamic> json) =>
     PassportElementErrorSelfie(
       source: json['source'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
       message: json['message'] as String,
       fileHash: json['file_hash'] as String,
     );
@@ -3507,7 +3728,7 @@ Map<String, dynamic> _$PassportElementErrorSelfieToJson(
         PassportElementErrorSelfie instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
       'file_hash': instance.fileHash,
     };
@@ -3516,7 +3737,7 @@ PassportElementErrorTranslationFile
     _$PassportElementErrorTranslationFileFromJson(Map<String, dynamic> json) =>
         PassportElementErrorTranslationFile(
           source: json['source'] as String,
-          type: json['type'] as String,
+          type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
           message: json['message'] as String,
           fileHash: json['file_hash'] as String,
         );
@@ -3525,7 +3746,7 @@ Map<String, dynamic> _$PassportElementErrorTranslationFileToJson(
         PassportElementErrorTranslationFile instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
       'file_hash': instance.fileHash,
     };
@@ -3534,7 +3755,7 @@ PassportElementErrorTranslationFiles
     _$PassportElementErrorTranslationFilesFromJson(Map<String, dynamic> json) =>
         PassportElementErrorTranslationFiles(
           source: json['source'] as String,
-          type: json['type'] as String,
+          type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
           message: json['message'] as String,
           fileHashes: (json['file_hashes'] as List<dynamic>)
               .map((e) => e as String)
@@ -3545,7 +3766,7 @@ Map<String, dynamic> _$PassportElementErrorTranslationFilesToJson(
         PassportElementErrorTranslationFiles instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
       'file_hashes': instance.fileHashes,
     };
@@ -3554,7 +3775,7 @@ PassportElementErrorUnspecified _$PassportElementErrorUnspecifiedFromJson(
         Map<String, dynamic> json) =>
     PassportElementErrorUnspecified(
       source: json['source'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
       message: json['message'] as String,
       elementHash: json['element_hash'] as String,
     );
@@ -3563,7 +3784,7 @@ Map<String, dynamic> _$PassportElementErrorUnspecifiedToJson(
         PassportElementErrorUnspecified instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
       'element_hash': instance.elementHash,
     };
@@ -3572,7 +3793,7 @@ PassportElementError _$PassportElementErrorFromJson(
         Map<String, dynamic> json) =>
     PassportElementError(
       source: json['source'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$PassportElementErrorTypeEnumMap, json['type']),
       message: json['message'] as String,
     );
 
@@ -3580,7 +3801,7 @@ Map<String, dynamic> _$PassportElementErrorToJson(
         PassportElementError instance) =>
     <String, dynamic>{
       'source': instance.source,
-      'type': instance.type,
+      'type': _$PassportElementErrorTypeEnumMap[instance.type]!,
       'message': instance.message,
     };
 
