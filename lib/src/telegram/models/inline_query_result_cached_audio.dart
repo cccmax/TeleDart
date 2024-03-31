@@ -33,7 +33,7 @@ class InlineQueryResultCachedAudio implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String audioFileId;
   String? caption;
   String? parseMode;
@@ -43,7 +43,7 @@ class InlineQueryResultCachedAudio implements InlineQueryResult {
   InputMessageContent? inputMessageContent;
   InlineQueryResultCachedAudio({
     required this.id,
-    this.type = InlineQueryResult.typeAudio,
+    this.type = InlineQueryResultType.article,
     required this.audioFileId,
     this.caption,
     this.parseMode,

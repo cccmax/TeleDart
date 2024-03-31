@@ -29,7 +29,7 @@ class InlineQueryResultGif implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String gifUrl;
   int? gifWidth;
   int? gifHeight;
@@ -46,7 +46,7 @@ class InlineQueryResultGif implements InlineQueryResult {
 
   InlineQueryResultGif({
     required this.id,
-    this.type = InlineQueryResult.typeGif,
+    this.type = InlineQueryResultType.gif,
     required this.gifUrl,
     this.gifWidth,
     this.gifHeight,

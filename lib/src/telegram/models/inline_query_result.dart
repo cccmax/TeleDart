@@ -43,6 +43,41 @@ part of '../model.dart';
 /// * [InlineQueryResultVoice](https://core.telegram.org/bots/api#inlinequeryresultvoice)
 ///
 /// https://core.telegram.org/bots/api#inlinequeryresult
+
+@JsonEnum()
+enum InlineQueryResultType {
+  @JsonValue('article')
+  article,
+  @JsonValue('audio')
+  audio,
+  @JsonValue('document')
+  document,
+  @JsonValue('gif')
+  gif,
+  @JsonValue('mpeg4_gif')
+  mpeg4Gif,
+  @JsonValue('photo')
+  photo,
+  @JsonValue('sticker')
+  sticker,
+  @JsonValue('video')
+  video,
+  @JsonValue('voice')
+  voice,
+  @JsonValue('contact')
+  contact,
+  @JsonValue('game')
+  game,
+  @JsonValue('location')
+  location,
+  @JsonValue('venue')
+  venue,
+}
+
+extension InlineQueryResultTypeExtenson on InlineQueryResultType {
+  String value() => _$InlineQueryResultTypeEnumMap[this]!;
+}
+
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InlineQueryResult {
   static const typeArticle = 'article';
@@ -59,7 +94,8 @@ class InlineQueryResult {
   static const typeLocation = 'location';
   static const typeVenue = 'venue';
 
-  String type;
+  // String type;
+  InlineQueryResultType type;
   String id;
   InlineKeyboardMarkup? replyMarkup;
   InlineQueryResult({

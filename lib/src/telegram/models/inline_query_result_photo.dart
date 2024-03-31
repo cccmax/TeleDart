@@ -30,7 +30,7 @@ class InlineQueryResultPhoto implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String photoUrl;
   String thumbnailUrl;
   int? photoWidth;
@@ -45,7 +45,7 @@ class InlineQueryResultPhoto implements InlineQueryResult {
   InputMessageContent? inputMessageContent;
   InlineQueryResultPhoto({
     required this.id,
-    this.type = InlineQueryResult.typePhoto,
+    this.type = InlineQueryResultType.photo,
     required this.photoUrl,
     required this.thumbnailUrl,
     this.photoWidth,

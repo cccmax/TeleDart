@@ -33,14 +33,14 @@ class InlineQueryResultCachedSticker implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String? stickerFileId;
   @override
   InlineKeyboardMarkup? replyMarkup;
   InputMessageContent? inputMessageContent;
   InlineQueryResultCachedSticker({
     required this.id,
-    this.type = InlineQueryResult.typeSticker,
+    this.type = InlineQueryResultType.sticker,
     required this.stickerFileId,
     this.replyMarkup,
     this.inputMessageContent,

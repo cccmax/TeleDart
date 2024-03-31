@@ -33,7 +33,7 @@ class InlineQueryResultVoice implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String voiceUrl;
   String title;
   String? caption;
@@ -46,7 +46,7 @@ class InlineQueryResultVoice implements InlineQueryResult {
 
   InlineQueryResultVoice({
     required this.id,
-    this.type = InlineQueryResult.typeVoice,
+    this.type = InlineQueryResultType.voice,
     required this.voiceUrl,
     required this.title,
     this.caption,

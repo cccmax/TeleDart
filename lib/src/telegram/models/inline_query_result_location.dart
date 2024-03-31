@@ -32,7 +32,7 @@ class InlineQueryResultLocation implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   double latitude;
   double longitude;
   String title;
@@ -49,7 +49,7 @@ class InlineQueryResultLocation implements InlineQueryResult {
 
   InlineQueryResultLocation({
     required this.id,
-    this.type = InlineQueryResult.typeLocation,
+    this.type = InlineQueryResultType.location,
     required this.latitude,
     required this.longitude,
     required this.title,

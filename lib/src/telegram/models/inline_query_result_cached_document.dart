@@ -33,7 +33,7 @@ class InlineQueryResultCachedDocument implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String title;
   String documentFileId;
   String? description;
@@ -45,7 +45,7 @@ class InlineQueryResultCachedDocument implements InlineQueryResult {
   InputMessageContent? inputMessageContent;
   InlineQueryResultCachedDocument({
     required this.id,
-    this.type = InlineQueryResult.typeDocument,
+    this.type = InlineQueryResultType.document,
     required this.title,
     required this.documentFileId,
     this.description,

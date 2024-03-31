@@ -30,7 +30,7 @@ class InlineQueryResultCachedPhoto implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String photoFileId;
   String? title;
   String? description;
@@ -42,7 +42,7 @@ class InlineQueryResultCachedPhoto implements InlineQueryResult {
   InputMessageContent? inputMessageContent;
   InlineQueryResultCachedPhoto({
     required this.id,
-    this.type = InlineQueryResult.typePhoto,
+    this.type = InlineQueryResultType.photo,
     required this.photoFileId,
     this.title,
     this.description,

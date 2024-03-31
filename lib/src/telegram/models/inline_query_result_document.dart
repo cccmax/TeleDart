@@ -33,7 +33,7 @@ class InlineQueryResultDocument implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String title;
   String? caption;
   String? parseMode;
@@ -49,7 +49,7 @@ class InlineQueryResultDocument implements InlineQueryResult {
   int? thumbnailHeight;
   InlineQueryResultDocument({
     required this.id,
-    this.type = InlineQueryResult.typeDocument,
+    this.type = InlineQueryResultType.document,
     required this.title,
     this.caption,
     this.parseMode,

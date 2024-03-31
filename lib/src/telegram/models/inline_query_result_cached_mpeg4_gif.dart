@@ -30,7 +30,7 @@ class InlineQueryResultCachedMpeg4Gif implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String mpeg4FileId;
   String? title;
   String? caption;
@@ -41,7 +41,7 @@ class InlineQueryResultCachedMpeg4Gif implements InlineQueryResult {
   InputMessageContent? inputMessageContent;
   InlineQueryResultCachedMpeg4Gif({
     required this.id,
-    this.type = InlineQueryResult.typeMpeg4Gif,
+    this.type = InlineQueryResultType.mpeg4Gif,
     required this.mpeg4FileId,
     this.title,
     this.caption,

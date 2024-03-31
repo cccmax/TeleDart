@@ -33,7 +33,7 @@ class InlineQueryResultContact implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String phoneNumber;
   String firstName;
   String? lastName;
@@ -46,7 +46,7 @@ class InlineQueryResultContact implements InlineQueryResult {
   int? thumbnailHeight;
   InlineQueryResultContact({
     required this.id,
-    this.type = InlineQueryResult.typeContact,
+    this.type = InlineQueryResultType.contact,
     required this.phoneNumber,
     required this.firstName,
     this.lastName,

@@ -30,7 +30,7 @@ class InlineQueryResultCachedGif implements InlineQueryResult {
   @override
   String id;
   @override
-  String type;
+  InlineQueryResultType type;
   String gifFileId;
   String? title;
   String? caption;
@@ -41,7 +41,7 @@ class InlineQueryResultCachedGif implements InlineQueryResult {
   InputMessageContent? inputMessageContent;
   InlineQueryResultCachedGif({
     required this.id,
-    this.type = InlineQueryResult.typeGif,
+    this.type = InlineQueryResultType.gif,
     required this.gifFileId,
     this.title,
     this.caption,
