@@ -26,9 +26,9 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class BotCommandScopeAllGroupChats implements BotCommandScope {
   @override
-  String type;
+  BotCommandScopeType type;
 
-  BotCommandScopeAllGroupChats({this.type = BotCommandScope.typeAllGroupChats});
+  BotCommandScopeAllGroupChats({this.type = BotCommandScopeType.allGroupChats});
 
   factory BotCommandScopeAllGroupChats.fromJson(Map<String, dynamic> json) =>
       _$BotCommandScopeAllGroupChatsFromJson(json);

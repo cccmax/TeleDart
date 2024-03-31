@@ -2,7 +2,7 @@
 
 - support Telegram API 6.9
 - **Breaking** Updated function `telegram:Telegram.sendDice` and function `teledart:Message.replyDice` to accept enum of `DiceEmoji` instead of emoji string
-- **Breaking** Updated class `Dice`, `InlineQueryResult`, `MenuButton`, `PassportElementError` to use enum for `type`
+- **Breaking** Updated class `Dice`, `InlineQueryResult`, `MenuButton`, `PassportElementError`, `InputMedia`, `InputMediaWithThumbnail`, `BotCommandScope` to use enum for `type`
 
 ## 0.6.1
 

@@ -26,11 +26,11 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class BotCommandScopeChat implements BotCommandScope {
   @override
-  String type;
+  BotCommandScopeType type;
   dynamic chatId;
 
   BotCommandScopeChat({
-    this.type = BotCommandScope.typeChat,
+    this.type = BotCommandScopeType.chat,
     required this.chatId,
   });
 

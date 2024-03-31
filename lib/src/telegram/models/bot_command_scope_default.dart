@@ -29,9 +29,9 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class BotCommandScopeDefault implements BotCommandScope {
   @override
-  String type;
+  BotCommandScopeType type;
 
-  BotCommandScopeDefault({this.type = BotCommandScope.typeDefault});
+  BotCommandScopeDefault({this.type = BotCommandScopeType.defaultCommand});
 
   factory BotCommandScopeDefault.fromJson(Map<String, dynamic> json) =>
       _$BotCommandScopeDefaultFromJson(json);

@@ -18,6 +18,28 @@
 
 part of '../model.dart';
 
+@JsonEnum()
+enum BotCommandScopeType {
+  @JsonValue('default')
+  defaultCommand,
+  @JsonValue('all_private_chats')
+  allPrivateChats,
+  @JsonValue('all_group_chats')
+  allGroupChats,
+  @JsonValue('all_chat_administrators')
+  allChatAdministrators,
+  @JsonValue('chat')
+  chat,
+  @JsonValue('chat_administrators')
+  chatAdministrators,
+  @JsonValue('chat_member')
+  chatMember,
+}
+
+extension BotCommandScopeTypeExtenson on BotCommandScopeType {
+  String value() => _$BotCommandScopeTypeEnumMap[this]!;
+}
+
 /// This object represents the scope to which bot commands are applied.
 ///
 /// Currently, the following 7 scopes are supported:
@@ -32,15 +54,7 @@ part of '../model.dart';
 /// https://core.telegram.org/bots/api#botcommandscope
 @JsonSerializable(fieldRename: FieldRename.snake)
 class BotCommandScope {
-  static const typeDefault = 'default';
-  static const typeAllPrivateChats = 'all_private_chats';
-  static const typeAllGroupChats = 'all_group_chats';
-  static const typeAllChatAdministrators = 'all_chat_administrators';
-  static const typeChat = 'chat';
-  static const typeChatAdministrators = 'chat_administrators';
-  static const typeChatMember = 'chat_member';
-
-  String type;
+  BotCommandScopeType type;
 
   BotCommandScope({required this.type});
 
