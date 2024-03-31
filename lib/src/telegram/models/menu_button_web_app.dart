@@ -27,11 +27,11 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class MenuButtonWebApp implements MenuButton {
   @override
-  String type;
+  MenuButtonType type;
   String text;
   WebAppInfo webApp;
   MenuButtonWebApp(
-      {this.type = MenuButton.typeWebApp,
+      {this.type = MenuButtonType.webApp,
       required this.text,
       required this.webApp});
   factory MenuButtonWebApp.fromJson(Map<String, dynamic> json) =>

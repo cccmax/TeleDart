@@ -25,8 +25,8 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class MenuButtonCommands implements MenuButton {
   @override
-  String type;
-  MenuButtonCommands({this.type = MenuButton.typeCommands});
+  MenuButtonType type;
+  MenuButtonCommands({this.type = MenuButtonType.commands});
   factory MenuButtonCommands.fromJson(Map<String, dynamic> json) =>
       _$MenuButtonCommandsFromJson(json);
   @override

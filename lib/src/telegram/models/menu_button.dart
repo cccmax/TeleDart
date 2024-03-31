@@ -18,6 +18,20 @@
 
 part of '../model.dart';
 
+@JsonEnum()
+enum MenuButtonType {
+  @JsonValue('commands')
+  commands,
+  @JsonValue('web_app')
+  webApp,
+  @JsonValue('default')
+  defaultButton,
+}
+
+extension MenuButtonTypeExtenson on MenuButtonType {
+  String value() => _$MenuButtonTypeEnumMap[this]!;
+}
+
 /// This object describes the bot's menu button in a private chat. It should be one of
 /// - [MenuButtonCommands]
 /// - [MenuButtonWebApp]
@@ -30,11 +44,7 @@ part of '../model.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class MenuButton {
-  static const typeCommands = 'commands';
-  static const typeWebApp = 'web_app';
-  static const typeDefault = 'default';
-
-  String type;
+  MenuButtonType type;
   MenuButton({required this.type});
   factory MenuButton.fromJson(Map<String, dynamic> json) =>
       _$MenuButtonFromJson(json);
