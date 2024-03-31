@@ -1066,7 +1066,7 @@ class Telegram {
     var body = <String, dynamic>{
       'chat_id': chatId,
       'message_thread_id': messageThreadId,
-      'emoji': emoji.getEmoji(),
+      'emoji': emoji.value(),
       'disable_notification': disableNotification,
       'protect_content': protectContent,
       'reply_to_message_id': replyToMessageId,

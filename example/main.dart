@@ -4,6 +4,7 @@ import 'dart:io' show Platform;
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 import 'package:teledart/model.dart';
+import 'package:test/test.dart';
 
 Future<void> main() async {
   final envVars = Platform.environment;
@@ -31,7 +32,12 @@ Future<void> main() async {
   // Sick of boilerplates? Reply messages like below, nice and tidy
   // Short hands also available for answer query methods
   teledart.onCommand('glory').listen((message) => message.reply('to Ukraine!'));
-  teledart.onCommand('dice').listen((message) => message.replyDice(emoji: DiceEmoji.slotMachine));
+  teledart.onCommand('dice').listen((message) async {
+
+      var msg = await message.replyDice(emoji: DiceEmoji.slotMachine);
+
+      print(msg.dice?.emoji.value() ?? "no emoji");
+  });
 
   // You can also utilise regular expressions
   teledart

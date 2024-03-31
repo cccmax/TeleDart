@@ -1,6 +1,7 @@
 ## unreleased
 
 - support Telegram API 6.9
+- **Breaking** Updated class `Dice`, function `telegram:Telegram.sendDice` and function `teledart:Message.replyDice` to accept enum of `DiceEmoji` instead of emoji string
 
 ## 0.6.1
 

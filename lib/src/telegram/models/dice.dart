@@ -18,9 +18,6 @@
 
 part of '../model.dart';
 
-/// This object represents an animated emoji that displays a random value.
-///
-/// https://core.telegram.org/bots/api#dice
 @JsonEnum()
 enum DiceEmoji {
   @JsonValue('🎲')
@@ -38,20 +35,15 @@ enum DiceEmoji {
 }
 
 extension DiceEmojiExtenson on DiceEmoji {
-  String getEmoji() => _$DiceEmojiEnumMap[this] ?? '🎲';
+  String value() => _$DiceEmojiEnumMap[this]!;
 }
 
+/// This object represents an animated emoji that displays a random value.
+///
+/// https://core.telegram.org/bots/api#dice
 @JsonSerializable(fieldRename: FieldRename.snake)
 class Dice {
-  static const emojiDice = '🎲';
-  static const emojiDart = '🎯';
-  static const emojiBowling = '🎳';
-  static const emojiBasketball = '🏀';
-  static const emojiFootball = '⚽';
-  static const emojiSlotMachine = '🎰';
-
   int value;
-  // String emoji;
   DiceEmoji emoji;
   Dice({
     required this.value,
