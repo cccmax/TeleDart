@@ -28,7 +28,7 @@ class PassportElementErrorTranslationFiles implements PassportElementError {
   @override
   String source;
   @override
-  String type;
+  PassportElementErrorType type;
   @override
   String message;
   List<String> fileHashes;

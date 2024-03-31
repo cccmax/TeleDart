@@ -18,6 +18,36 @@
 
 part of '../model.dart';
 
+@JsonEnum()
+enum PassportElementErrorType {
+  @JsonValue('personal_details')
+  personalDetails,
+  @JsonValue('passport')
+  passport,
+  @JsonValue('driver_license')
+  driverLicense,
+  @JsonValue('identity_card')
+  identityCard,
+  @JsonValue('internal_passport')
+  internalPassport,
+  @JsonValue('address')
+  address,
+  @JsonValue('utility_bill')
+  utilityBill,
+  @JsonValue('bank_statement')
+  bankStatement,
+  @JsonValue('rental_agreement')
+  rentalAgreement,
+  @JsonValue('passport_registration')
+  passportRegistration,
+  @JsonValue('temporary_registration')
+  temporaryRegistration,
+}
+
+extension PassportElementErrorTypeExtenson on PassportElementErrorType {
+  String value() => _$PassportElementErrorTypeEnumMap[this]!;
+}
+
 /// This object represents an error in the Telegram Passport element which was submitted that should be resolved by the user.
 ///
 /// It should be one of:
@@ -34,15 +64,8 @@ part of '../model.dart';
 /// https://core.telegram.org/bots/api#passportelementerror
 @JsonSerializable(fieldRename: FieldRename.snake)
 class PassportElementError {
-  static const typePersonalDetails = 'personal_details';
-  static const typePassport = 'passport';
-  static const typeDriverLicense = 'driver_license';
-  static const typeIdentityCard = 'identity_card';
-  static const typeInternalPassport = 'internal_passport';
-  static const typeAddress = 'address';
-
   String source;
-  String type;
+  PassportElementErrorType type;
   String message;
   PassportElementError({
     required this.source,
