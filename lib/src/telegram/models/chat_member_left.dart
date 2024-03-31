@@ -27,13 +27,13 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ChatMemberLeft implements ChatMember {
   @override
-  String status;
+  ChatMemberStatus status;
   @override
   User user;
 
   ChatMemberLeft({
-    required this.status,
     required this.user,
+    this.status = ChatMemberStatus.left,
   });
 
   factory ChatMemberLeft.fromJson(Map<String, dynamic> json) =>

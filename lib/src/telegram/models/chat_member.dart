@@ -18,6 +18,26 @@
 
 part of '../model.dart';
 
+@JsonEnum()
+enum ChatMemberStatus {
+  @JsonValue('creator')
+  creator,
+  @JsonValue('administrator')
+  administrator,
+  @JsonValue('member')
+  member,
+  @JsonValue('restricted')
+  restricted,
+  @JsonValue('left')
+  left,
+  @JsonValue('kicked')
+  kicked,
+}
+
+extension ChatMemberStatusExtenson on ChatMemberStatus {
+  String value() => _$ChatMemberStatusEnumMap[this]!;
+}
+
 /// This object contains information about one member of a chat.
 ///
 /// Currently, the following 6 types of chat members are supported:
@@ -32,7 +52,7 @@ part of '../model.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ChatMember {
-  String status;
+  ChatMemberStatus status;
   User user;
 
   ChatMember({

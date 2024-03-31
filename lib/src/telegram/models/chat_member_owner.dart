@@ -26,7 +26,7 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ChatMemberOwner implements ChatMember {
   @override
-  String status;
+  ChatMemberStatus status;
   @override
   User user;
   bool isAnonymous;
@@ -34,8 +34,8 @@ class ChatMemberOwner implements ChatMember {
 
   ChatMemberOwner({
     required this.user,
-    required this.status,
     required this.isAnonymous,
+    this.status = ChatMemberStatus.creator,
     this.customTitle,
   });
 

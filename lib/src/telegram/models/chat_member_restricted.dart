@@ -27,7 +27,7 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ChatMemberRestricted implements ChatMember {
   @override
-  String status;
+  ChatMemberStatus status;
   @override
   User user;
   bool isMember;
@@ -48,8 +48,8 @@ class ChatMemberRestricted implements ChatMember {
   int untilDate;
 
   ChatMemberRestricted({
-    required this.status,
     required this.user,
+    this.status = ChatMemberStatus.restricted,
     this.isMember = false,
     this.canChangeInfo = false,
     this.canInviteUsers = false,

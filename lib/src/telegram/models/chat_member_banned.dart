@@ -27,15 +27,15 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ChatMemberBanned implements ChatMember {
   @override
-  String status;
+  ChatMemberStatus status;
   @override
   User user;
   int untilDate;
 
   ChatMemberBanned({
-    required this.status,
     required this.user,
     required this.untilDate,
+    this.status = ChatMemberStatus.kicked,
   });
 
   @JsonKey(includeFromJson: false, includeToJson: false)

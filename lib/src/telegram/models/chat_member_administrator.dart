@@ -26,7 +26,7 @@ part of '../model.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ChatMemberAdministrator implements ChatMember {
   @override
-  String status;
+  ChatMemberStatus status;
   @override
   User user;
   bool canBeEdited;
@@ -48,8 +48,8 @@ class ChatMemberAdministrator implements ChatMember {
   String? customTitle;
 
   ChatMemberAdministrator({
-    required this.status,
     required this.user,
+    this.status = ChatMemberStatus.administrator,
     this.canBeEdited = false,
     this.isAnonymous = false,
     this.canManageChat = false,
