@@ -155,6 +155,14 @@ class TeleDart extends Telegram {
   /// Listen to edited channel post events
   Stream<TeleDartMessage> onEditedChannelPost() =>
       _event.onEditedChannelPost().map(_messageStreamMapper);
+  
+  /// Listen to edited reaction updated events
+  Stream<MessageReactionUpdated> onMessageReactionUpdated() =>
+      _event.onMessageReactionUpdated();
+
+  /// Listen to edited reaction count updated events
+  Stream<MessageReactionCountUpdated> onMessageReactionCountUpdated() =>
+      _event.onMessageReactionCountUpdated();
 
   /// Listen to inline query events
   ///

@@ -33,9 +33,10 @@ class Event {
   final StreamController<Message> _editedMessageStreamController;
   final StreamController<Message> _channelPostStreamController;
   final StreamController<Message> _editedChannelPostStreamController;
+  final StreamController<MessageReactionUpdated> _messageReactionStreamController;
+  final StreamController<MessageReactionCountUpdated> _messageReactionCountStreamController;
   final StreamController<InlineQuery> _inlineQueryStreamController;
-  final StreamController<ChosenInlineResult>
-      _chosenInlineResultStreamController;
+  final StreamController<ChosenInlineResult> _chosenInlineResultStreamController;
   final StreamController<CallbackQuery> _callbackQueryStreamController;
   final StreamController<ShippingQuery> _shippingQueryStreamController;
   final StreamController<PreCheckoutQuery> _preCheckoutQueryStreamController;
@@ -51,6 +52,8 @@ class Event {
         _channelPostStreamController = StreamController.broadcast(sync: sync),
         _editedChannelPostStreamController =
             StreamController.broadcast(sync: sync),
+        _messageReactionStreamController = StreamController.broadcast(sync: sync),
+        _messageReactionCountStreamController = StreamController.broadcast(sync: sync),
         _inlineQueryStreamController = StreamController.broadcast(sync: sync),
         _chosenInlineResultStreamController =
             StreamController.broadcast(sync: sync),
@@ -75,6 +78,10 @@ class Event {
       _channelPostStreamController.add(update.channelPost!);
     } else if (update.editedChannelPost != null) {
       _editedChannelPostStreamController.add(update.editedChannelPost!);
+    } else if (update.messageReaction != null) {
+      _messageReactionStreamController.add(update.messageReaction!);
+    } else if (update.messageReactionCount != null) {
+      _messageReactionCountStreamController.add(update.messageReactionCount!);
     } else if (update.inlineQuery != null) {
       _inlineQueryStreamController.add(update.inlineQuery!);
     } else if (update.chosenInlineResult != null) {
@@ -195,6 +202,14 @@ class Event {
   /// Listens to edited channel post events
   Stream<Message> onEditedChannelPost() =>
       _editedChannelPostStreamController.stream;
+
+  /// Listens to message reaction updated events
+  Stream<MessageReactionUpdated> onMessageReactionUpdated() =>
+      _messageReactionStreamController.stream;
+
+  /// Listens to message reaction count updated events
+  Stream<MessageReactionCountUpdated> onMessageReactionCountUpdated() =>
+      _messageReactionCountStreamController.stream;
 
   /// Listens to inline query events
   Stream<InlineQuery> onInlineQuery() => _inlineQueryStreamController.stream;

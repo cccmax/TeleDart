@@ -54,6 +54,10 @@ class Webhook extends AbstractUpdateFetcher {
   ///
   /// Default [port] is `443`, Telegram API supports `443`, `80`, `88`, `8443`.
   /// Provide [privateKey] and [certificate] pair for HTTPS configuration
+  /// 
+  /// Setting [allowedUpdates] to empty **List** to receive all update types
+  /// except **chat_member**, **message_reaction**, and **message_reaction_count**
+  /// If not specified, the previous setting will be used.
   ///
   /// Throws [WebhookException] if [port] is not supported by Telegram
   /// or [maxConnections] is less than 1 or greater than 100.

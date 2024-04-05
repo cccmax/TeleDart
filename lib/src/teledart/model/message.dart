@@ -756,7 +756,7 @@ class TeleDartMessage extends Message {
   /// change the chosen reactions on a message
   ///
   /// A wrapper around [TeleDart.setMessageReaction].
-  /// On success, returns the sent *True*.
+  /// On success, returns the sent **True**.
   /// 
   /// It takes some optional parameters to customise the reaction
   ///

@@ -1111,7 +1111,7 @@ class Telegram {
   /// Use this method to change the chosen reactions on a message. Service messages can't be reacted to.
   /// Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel.
   /// 
-  /// Returns *True* on success.
+  /// Returns **True** on success.
   ///
   /// https://core.telegram.org/bots/api#setmessagereaction
 Future<bool> setMessageReaction(dynamic chatId, int messageId,

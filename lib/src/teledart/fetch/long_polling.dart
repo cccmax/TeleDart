@@ -44,6 +44,10 @@ class LongPolling extends AbstractUpdateFetcher {
   Duration retryDelay = Duration(seconds: 5);
 
   /// Setup long polling
+  /// 
+  /// Setting [allowedUpdates] to empty **List** to receive all update types
+  /// except **chat_member**, **message_reaction**, and **message_reaction_count**
+  /// If not specified, the previous setting will be used.
   ///
   /// Throws [LongPollingException] if [limit] is less than 1 or greater than 100
   /// or [timeout] is greater than 50.
