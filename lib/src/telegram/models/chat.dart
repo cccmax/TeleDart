@@ -37,6 +37,7 @@ class Chat {
   bool? isForum;
   ChatPhoto? photo;
   List<String>? activeUsernames;
+  List<ReactionType>? availableReactions;
   String? emojiStatusCustomEmojiId;
   String? emojiStatusExpirationDate;
   String? bio;
@@ -68,6 +69,7 @@ class Chat {
     this.isForum,
     this.photo,
     this.activeUsernames,
+    this.availableReactions,
     this.emojiStatusCustomEmojiId,
     this.emojiStatusExpirationDate,
     this.bio,

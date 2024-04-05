@@ -30,6 +30,8 @@ class Update {
   Message? editedMessage;
   Message? channelPost;
   Message? editedChannelPost;
+  MessageReactionUpdated? messageReaction;
+  MessageReactionCountUpdated? messageReactionCount;
   InlineQuery? inlineQuery;
   ChosenInlineResult? chosenInlineResult;
   CallbackQuery? callbackQuery;
@@ -46,6 +48,8 @@ class Update {
     this.editedMessage,
     this.channelPost,
     this.editedChannelPost,
+    this.messageReaction,
+    this.messageReactionCount,
     this.inlineQuery,
     this.chosenInlineResult,
     this.callbackQuery,

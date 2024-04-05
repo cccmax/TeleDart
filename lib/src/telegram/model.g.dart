@@ -530,6 +530,79 @@ const _$ReactionEmojiEnumMap = {
   ReactionEmoji.poutingFace: '😡',
 };
 
+ReactionCount _$ReactionCountFromJson(Map<String, dynamic> json) =>
+    ReactionCount(
+      type: ReactionType.fromJson(json['type'] as Map<String, dynamic>),
+      totalCount: json['total_count'] as int,
+    );
+
+Map<String, dynamic> _$ReactionCountToJson(ReactionCount instance) =>
+    <String, dynamic>{
+      'type': instance.type.toJson(),
+      'total_count': instance.totalCount,
+    };
+
+MessageReactionUpdated _$MessageReactionUpdatedFromJson(
+        Map<String, dynamic> json) =>
+    MessageReactionUpdated(
+      chat: Chat.fromJson(json['chat'] as Map<String, dynamic>),
+      messageId: json['message_id'] as int,
+      user: json['user'] == null
+          ? null
+          : User.fromJson(json['user'] as Map<String, dynamic>),
+      actorChat: json['actor_chat'] == null
+          ? null
+          : Chat.fromJson(json['actor_chat'] as Map<String, dynamic>),
+      date: json['date'] as int,
+      oldReaction: (json['old_reaction'] as List<dynamic>)
+          .map((e) => ReactionType.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      newReaction: (json['new_reaction'] as List<dynamic>)
+          .map((e) => ReactionType.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$MessageReactionUpdatedToJson(
+    MessageReactionUpdated instance) {
+  final val = <String, dynamic>{
+    'chat': instance.chat.toJson(),
+    'message_id': instance.messageId,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('user', instance.user?.toJson());
+  writeNotNull('actor_chat', instance.actorChat?.toJson());
+  val['date'] = instance.date;
+  val['old_reaction'] = instance.oldReaction.map((e) => e.toJson()).toList();
+  val['new_reaction'] = instance.newReaction.map((e) => e.toJson()).toList();
+  return val;
+}
+
+MessageReactionCountUpdated _$MessageReactionCountUpdatedFromJson(
+        Map<String, dynamic> json) =>
+    MessageReactionCountUpdated(
+      chat: Chat.fromJson(json['chat'] as Map<String, dynamic>),
+      messageId: json['message_id'] as int,
+      date: json['date'] as int,
+      reactions: (json['reactions'] as List<dynamic>)
+          .map((e) => ReactionCount.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$MessageReactionCountUpdatedToJson(
+        MessageReactionCountUpdated instance) =>
+    <String, dynamic>{
+      'chat': instance.chat.toJson(),
+      'message_id': instance.messageId,
+      'date': instance.date,
+      'reactions': instance.reactions.map((e) => e.toJson()).toList(),
+    };
+
 ReactionTypeCustomEmoji _$ReactionTypeCustomEmojiFromJson(
         Map<String, dynamic> json) =>
     ReactionTypeCustomEmoji(
@@ -873,6 +946,9 @@ Chat _$ChatFromJson(Map<String, dynamic> json) => Chat(
       activeUsernames: (json['active_usernames'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      availableReactions: (json['available_reactions'] as List<dynamic>?)
+          ?.map((e) => ReactionType.fromJson(e as Map<String, dynamic>))
+          .toList(),
       emojiStatusCustomEmojiId: json['emoji_status_custom_emoji_id'] as String?,
       emojiStatusExpirationDate:
           json['emoji_status_expiration_date'] as String?,
@@ -924,6 +1000,8 @@ Map<String, dynamic> _$ChatToJson(Chat instance) {
   writeNotNull('is_forum', instance.isForum);
   writeNotNull('photo', instance.photo?.toJson());
   writeNotNull('active_usernames', instance.activeUsernames);
+  writeNotNull('available_reactions',
+      instance.availableReactions?.map((e) => e.toJson()).toList());
   writeNotNull(
       'emoji_status_custom_emoji_id', instance.emojiStatusCustomEmojiId);
   writeNotNull(
@@ -4356,6 +4434,14 @@ Update _$UpdateFromJson(Map<String, dynamic> json) => Update(
           ? null
           : Message.fromJson(
               json['edited_channel_post'] as Map<String, dynamic>),
+      messageReaction: json['message_reaction'] == null
+          ? null
+          : MessageReactionUpdated.fromJson(
+              json['message_reaction'] as Map<String, dynamic>),
+      messageReactionCount: json['message_reaction_count'] == null
+          ? null
+          : MessageReactionCountUpdated.fromJson(
+              json['message_reaction_count'] as Map<String, dynamic>),
       inlineQuery: json['inline_query'] == null
           ? null
           : InlineQuery.fromJson(json['inline_query'] as Map<String, dynamic>),
@@ -4410,6 +4496,9 @@ Map<String, dynamic> _$UpdateToJson(Update instance) {
   writeNotNull('edited_message', instance.editedMessage?.toJson());
   writeNotNull('channel_post', instance.channelPost?.toJson());
   writeNotNull('edited_channel_post', instance.editedChannelPost?.toJson());
+  writeNotNull('message_reaction', instance.messageReaction?.toJson());
+  writeNotNull(
+      'message_reaction_count', instance.messageReactionCount?.toJson());
   writeNotNull('inline_query', instance.inlineQuery?.toJson());
   writeNotNull('chosen_inline_result', instance.chosenInlineResult?.toJson());
   writeNotNull('callback_query', instance.callbackQuery?.toJson());

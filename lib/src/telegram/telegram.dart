@@ -1108,6 +1108,28 @@ class Telegram {
     return await HttpClient.httpPost(requestUrl, body: body);
   }
 
+  /// Use this method to change the chosen reactions on a message. Service messages can't be reacted to.
+  /// Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel.
+  /// 
+  /// Returns *True* on success.
+  ///
+  /// https://core.telegram.org/bots/api#setmessagereaction
+Future<bool> setMessageReaction(dynamic chatId, int messageId,
+    {List<ReactionType>? reaction, bool? isBig}) async {
+  if (chatId is! String && chatId is! int) {
+      return Future.error(TelegramException(
+          'Attribute \'chatId\' can only be either type of String or int'));
+    }
+  var requestUrl = _apiUri('sendChatAction');
+  var body = <String, dynamic>{
+    'chat_id': chatId,
+    'message_id': messageId,
+    'reaction': reaction == null ? null : jsonEncode(reaction),
+    'is_big': isBig,
+  };
+  return await HttpClient.httpPost(requestUrl, body: body);
+}
+
   /// Use this method to get a list of profile pictures for a user
   ///
   /// Returns a [UserProfilePhotos] object.

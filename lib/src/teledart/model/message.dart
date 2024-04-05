@@ -752,4 +752,17 @@ class TeleDartMessage extends Message {
           messageThreadId: messageThreadId,
           disableNotification: disableNotification,
           protectContent: protectContent);
+
+  /// change the chosen reactions on a message
+  ///
+  /// A wrapper around [TeleDart.setMessageReaction].
+  /// On success, returns the sent *True*.
+  /// 
+  /// It takes some optional parameters to customise the reaction
+  ///
+  /// **Check [Telegram API documentation](https://core.telegram.org/bots/api#setmessagereaction)
+  /// for more information about those options.**
+  Future<bool> setReaction({List<ReactionType>? reaction, bool? isBig}) =>
+      _teledart.setMessageReaction(chat.id, messageId,
+          reaction: reaction, isBig: isBig);
 }
