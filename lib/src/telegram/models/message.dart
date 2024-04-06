@@ -34,6 +34,7 @@ class Message {
   bool? isAutomaticForward;
   Message? replyToMessage;
   ExternalReplyInfo? externalReply;
+  TextQuote? quote;
   User? viaBot;
   int? editDate;
   bool? hasProtectedContent;
@@ -104,6 +105,7 @@ class Message {
     this.isAutomaticForward,
     this.replyToMessage,
     this.externalReply,
+    this.quote,
     this.viaBot,
     this.editDate,
     this.hasProtectedContent,

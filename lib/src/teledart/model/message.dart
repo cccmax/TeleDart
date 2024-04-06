@@ -46,6 +46,7 @@ class TeleDartMessage extends Message {
           isAutomaticForward: message.isAutomaticForward,
           replyToMessage: message.replyToMessage,
           externalReply: message.externalReply,
+          quote: message.quote,
           viaBot: message.viaBot,
           editDate: message.editDate,
           hasProtectedContent: message.hasProtectedContent,

@@ -176,6 +176,7 @@ part 'models/sticker.dart';
 part 'models/story.dart';
 part 'models/successful_payment.dart';
 part 'models/switch_inline_query_chosen_chat.dart';
+part 'models/text_quote.dart';
 part 'models/update.dart';
 part 'models/user_profile_photos.dart';
 part 'models/user_shared.dart';

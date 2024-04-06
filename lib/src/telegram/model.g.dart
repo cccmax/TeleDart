@@ -3576,6 +3576,9 @@ Message _$MessageFromJson(Map<String, dynamic> json) => Message(
           ? null
           : ExternalReplyInfo.fromJson(
               json['external_reply'] as Map<String, dynamic>),
+      quote: json['quote'] == null
+          ? null
+          : TextQuote.fromJson(json['quote'] as Map<String, dynamic>),
       viaBot: json['via_bot'] == null
           ? null
           : User.fromJson(json['via_bot'] as Map<String, dynamic>),
@@ -3759,6 +3762,7 @@ Map<String, dynamic> _$MessageToJson(Message instance) {
   writeNotNull('is_automatic_forward', instance.isAutomaticForward);
   writeNotNull('reply_to_message', instance.replyToMessage?.toJson());
   writeNotNull('external_reply', instance.externalReply?.toJson());
+  writeNotNull('quote', instance.quote?.toJson());
   writeNotNull('via_bot', instance.viaBot?.toJson());
   writeNotNull('edit_date', instance.editDate);
   writeNotNull('has_protected_content', instance.hasProtectedContent);
@@ -4729,6 +4733,32 @@ Map<String, dynamic> _$SwitchInlineQueryChosenChatToJson(
   writeNotNull('allow_bot_chats', instance.allowBotChats);
   writeNotNull('allow_group_chats', instance.allowGroupChats);
   writeNotNull('allow_channel_chats', instance.allowChannelChats);
+  return val;
+}
+
+TextQuote _$TextQuoteFromJson(Map<String, dynamic> json) => TextQuote(
+      text: json['text'] as String,
+      entities: (json['entities'] as List<dynamic>?)
+          ?.map((e) => MessageEntity.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      position: json['position'] as int,
+      isManual: json['is_manual'] as bool?,
+    );
+
+Map<String, dynamic> _$TextQuoteToJson(TextQuote instance) {
+  final val = <String, dynamic>{
+    'text': instance.text,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('entities', instance.entities?.map((e) => e.toJson()).toList());
+  val['position'] = instance.position;
+  writeNotNull('is_manual', instance.isManual);
   return val;
 }
 
