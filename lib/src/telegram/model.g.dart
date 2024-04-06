@@ -3563,21 +3563,19 @@ Message _$MessageFromJson(Map<String, dynamic> json) => Message(
           : Chat.fromJson(json['sender_chat'] as Map<String, dynamic>),
       date: json['date'] as int,
       chat: Chat.fromJson(json['chat'] as Map<String, dynamic>),
-      forwardFrom: json['forward_from'] == null
+      forwardOrigin: json['forward_origin'] == null
           ? null
-          : User.fromJson(json['forward_from'] as Map<String, dynamic>),
-      forwardFromChat: json['forward_from_chat'] == null
-          ? null
-          : Chat.fromJson(json['forward_from_chat'] as Map<String, dynamic>),
-      forwardFromMessageId: json['forward_from_message_id'] as int?,
-      forwardSignature: json['forward_signature'] as String?,
-      forwardSenderName: json['forward_sender_name'] as String?,
-      forwardDate: json['forward_date'] as int?,
+          : MessageOrigin.fromJson(
+              json['forward_origin'] as Map<String, dynamic>),
       isTopicMessage: json['is_topic_message'] as bool?,
       isAutomaticForward: json['is_automatic_forward'] as bool?,
       replyToMessage: json['reply_to_message'] == null
           ? null
           : Message.fromJson(json['reply_to_message'] as Map<String, dynamic>),
+      externalReply: json['external_reply'] == null
+          ? null
+          : ExternalReplyInfo.fromJson(
+              json['external_reply'] as Map<String, dynamic>),
       viaBot: json['via_bot'] == null
           ? null
           : User.fromJson(json['via_bot'] as Map<String, dynamic>),
@@ -3756,15 +3754,11 @@ Map<String, dynamic> _$MessageToJson(Message instance) {
   writeNotNull('sender_chat', instance.senderChat?.toJson());
   val['date'] = instance.date;
   val['chat'] = instance.chat.toJson();
-  writeNotNull('forward_from', instance.forwardFrom?.toJson());
-  writeNotNull('forward_from_chat', instance.forwardFromChat?.toJson());
-  writeNotNull('forward_from_message_id', instance.forwardFromMessageId);
-  writeNotNull('forward_signature', instance.forwardSignature);
-  writeNotNull('forward_sender_name', instance.forwardSenderName);
-  writeNotNull('forward_date', instance.forwardDate);
+  writeNotNull('forward_origin', instance.forwardOrigin?.toJson());
   writeNotNull('is_topic_message', instance.isTopicMessage);
   writeNotNull('is_automatic_forward', instance.isAutomaticForward);
   writeNotNull('reply_to_message', instance.replyToMessage?.toJson());
+  writeNotNull('external_reply', instance.externalReply?.toJson());
   writeNotNull('via_bot', instance.viaBot?.toJson());
   writeNotNull('edit_date', instance.editDate);
   writeNotNull('has_protected_content', instance.hasProtectedContent);

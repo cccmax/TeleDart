@@ -29,15 +29,11 @@ class Message {
   Chat? senderChat;
   int date;
   Chat chat;
-  User? forwardFrom;
-  Chat? forwardFromChat;
-  int? forwardFromMessageId;
-  String? forwardSignature;
-  String? forwardSenderName;
-  int? forwardDate;
+  MessageOrigin? forwardOrigin;
   bool? isTopicMessage;
   bool? isAutomaticForward;
   Message? replyToMessage;
+  ExternalReplyInfo? externalReply;
   User? viaBot;
   int? editDate;
   bool? hasProtectedContent;
@@ -103,15 +99,11 @@ class Message {
     this.senderChat,
     required this.date,
     required this.chat,
-    this.forwardFrom,
-    this.forwardFromChat,
-    this.forwardFromMessageId,
-    this.forwardSignature,
-    this.forwardSenderName,
-    this.forwardDate,
+    this.forwardOrigin,
     this.isTopicMessage,
     this.isAutomaticForward,
     this.replyToMessage,
+    this.externalReply,
     this.viaBot,
     this.editDate,
     this.hasProtectedContent,
@@ -174,12 +166,6 @@ class Message {
   @JsonKey(includeFromJson: false, includeToJson: false)
   DateTime get date_ => TimeHelper.toDateTime(date);
   set date_(DateTime dateTime) => date = TimeHelper.toUnixTime(dateTime);
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  DateTime? get forwardDate_ =>
-      forwardDate == null ? null : TimeHelper.toDateTime(forwardDate!);
-  set forwardDate_(DateTime? dateTime) =>
-      forwardDate = dateTime == null ? null : TimeHelper.toUnixTime(dateTime);
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   DateTime? get editDate_ =>
