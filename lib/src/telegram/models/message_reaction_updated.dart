@@ -30,6 +30,7 @@ class MessageReactionUpdated {
   int date;
   List<ReactionType> oldReaction;
   List<ReactionType> newReaction;
+
   MessageReactionUpdated({
     required this.chat,
     required this.messageId,
@@ -39,6 +40,12 @@ class MessageReactionUpdated {
     required this.oldReaction,
     required this.newReaction,
   });
+
+ @JsonKey(includeFromJson: false, includeToJson: false)
+  DateTime get date_ => TimeHelper.toDateTime(date);
+  set date_(DateTime dateTime) =>
+      date = TimeHelper.toUnixTime(dateTime);
+
   factory MessageReactionUpdated.fromJson(Map<String, dynamic> json) =>
       _$MessageReactionUpdatedFromJson(json);
   Map<String, dynamic> toJson() => _$MessageReactionUpdatedToJson(this);

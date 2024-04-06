@@ -427,197 +427,6 @@ Map<String, dynamic> _$ChatLocationToJson(ChatLocation instance) =>
       'address': instance.address,
     };
 
-ReactionType _$ReactionTypeFromJson(Map<String, dynamic> json) => ReactionType(
-      type: $enumDecode(_$ReactionTypeTypeEnumMap, json['type']),
-    );
-
-Map<String, dynamic> _$ReactionTypeToJson(ReactionType instance) =>
-    <String, dynamic>{
-      'type': _$ReactionTypeTypeEnumMap[instance.type]!,
-    };
-
-const _$ReactionTypeTypeEnumMap = {
-  ReactionTypeType.emoji: 'emoji',
-  ReactionTypeType.customEmoji: 'custom_emoji',
-};
-
-ReactionTypeEmoji _$ReactionTypeEmojiFromJson(Map<String, dynamic> json) =>
-    ReactionTypeEmoji(
-      type: $enumDecodeNullable(_$ReactionTypeTypeEnumMap, json['type']) ??
-          ReactionTypeType.emoji,
-      emoji: $enumDecode(_$ReactionEmojiEnumMap, json['emoji']),
-    );
-
-Map<String, dynamic> _$ReactionTypeEmojiToJson(ReactionTypeEmoji instance) =>
-    <String, dynamic>{
-      'type': _$ReactionTypeTypeEnumMap[instance.type]!,
-      'emoji': _$ReactionEmojiEnumMap[instance.emoji]!,
-    };
-
-const _$ReactionEmojiEnumMap = {
-  ReactionEmoji.thumbsUp: '👍',
-  ReactionEmoji.thumbsDown: '👎',
-  ReactionEmoji.heart: '❤',
-  ReactionEmoji.fire: '🔥',
-  ReactionEmoji.inLove: '🥰',
-  ReactionEmoji.clappingHands: '👏',
-  ReactionEmoji.grinningFace: '😁',
-  ReactionEmoji.thinkingFace: '🤔',
-  ReactionEmoji.mindBlown: '🤯',
-  ReactionEmoji.screamingInFear: '😱',
-  ReactionEmoji.swearing: '🤬',
-  ReactionEmoji.crying: '😢',
-  ReactionEmoji.partyPopper: '🎉',
-  ReactionEmoji.starStruck: '🤩',
-  ReactionEmoji.vomiting: '🤮',
-  ReactionEmoji.poo: '💩',
-  ReactionEmoji.prayingHands: '🙏',
-  ReactionEmoji.okHand: '👌',
-  ReactionEmoji.dove: '🕊',
-  ReactionEmoji.clownFace: '🤡',
-  ReactionEmoji.yawningFace: '🥱',
-  ReactionEmoji.woozyFace: '🥴',
-  ReactionEmoji.heartEyes: '😍',
-  ReactionEmoji.whale: '🐳',
-  ReactionEmoji.heartOnFire: '❤‍🔥',
-  ReactionEmoji.newMoonFace: '🌚',
-  ReactionEmoji.hotDog: '🌭',
-  ReactionEmoji.hundredPoints: '💯',
-  ReactionEmoji.rollingOnTheFloorLaughing: '🤣',
-  ReactionEmoji.lightningBolt: '⚡',
-  ReactionEmoji.banana: '🍌',
-  ReactionEmoji.trophy: '🏆',
-  ReactionEmoji.brokenHeart: '💔',
-  ReactionEmoji.raisedEyebrow: '🤨',
-  ReactionEmoji.neutralFace: '😐',
-  ReactionEmoji.strawberry: '🍓',
-  ReactionEmoji.bottleWithPoppingCork: '🍾',
-  ReactionEmoji.kissMark: '💋',
-  ReactionEmoji.middleFinger: '🖕',
-  ReactionEmoji.smilingFaceWithHorns: '😈',
-  ReactionEmoji.sleepingFace: '😴',
-  ReactionEmoji.loudlyCryingFace: '😭',
-  ReactionEmoji.nerdFace: '🤓',
-  ReactionEmoji.ghost: '👻',
-  ReactionEmoji.manTechnologist: '👨‍💻',
-  ReactionEmoji.eyes: '👀',
-  ReactionEmoji.jackOLantern: '🎃',
-  ReactionEmoji.seeNoEvilMonkey: '🙈',
-  ReactionEmoji.smilingFaceWithHalo: '😇',
-  ReactionEmoji.fearfulFace: '😨',
-  ReactionEmoji.handshake: '🤝',
-  ReactionEmoji.writingHand: '✍',
-  ReactionEmoji.huggingFace: '🤗',
-  ReactionEmoji.salutingFace: '🫡',
-  ReactionEmoji.santaClaus: '🎅',
-  ReactionEmoji.christmasTree: '🎄',
-  ReactionEmoji.snowman: '☃',
-  ReactionEmoji.nailPolish: '💅',
-  ReactionEmoji.zanyFace: '🤪',
-  ReactionEmoji.moai: '🗿',
-  ReactionEmoji.cool: '🆒',
-  ReactionEmoji.heartWithArrow: '💘',
-  ReactionEmoji.hearNoEvilMonkey: '🙉',
-  ReactionEmoji.unicorn: '🦄',
-  ReactionEmoji.faceBlowingAKiss: '😘',
-  ReactionEmoji.pill: '💊',
-  ReactionEmoji.speakNoEvilMonkey: '🙊',
-  ReactionEmoji.sunglasses: '😎',
-  ReactionEmoji.alienMonster: '👾',
-  ReactionEmoji.manShrugging: '🤷‍♂️',
-  ReactionEmoji.personShrugging: '🤷',
-  ReactionEmoji.womanShrugging: '🤷‍♀️',
-  ReactionEmoji.poutingFace: '😡',
-};
-
-ReactionCount _$ReactionCountFromJson(Map<String, dynamic> json) =>
-    ReactionCount(
-      type: ReactionType.fromJson(json['type'] as Map<String, dynamic>),
-      totalCount: json['total_count'] as int,
-    );
-
-Map<String, dynamic> _$ReactionCountToJson(ReactionCount instance) =>
-    <String, dynamic>{
-      'type': instance.type.toJson(),
-      'total_count': instance.totalCount,
-    };
-
-MessageReactionUpdated _$MessageReactionUpdatedFromJson(
-        Map<String, dynamic> json) =>
-    MessageReactionUpdated(
-      chat: Chat.fromJson(json['chat'] as Map<String, dynamic>),
-      messageId: json['message_id'] as int,
-      user: json['user'] == null
-          ? null
-          : User.fromJson(json['user'] as Map<String, dynamic>),
-      actorChat: json['actor_chat'] == null
-          ? null
-          : Chat.fromJson(json['actor_chat'] as Map<String, dynamic>),
-      date: json['date'] as int,
-      oldReaction: (json['old_reaction'] as List<dynamic>)
-          .map((e) => ReactionType.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      newReaction: (json['new_reaction'] as List<dynamic>)
-          .map((e) => ReactionType.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$MessageReactionUpdatedToJson(
-    MessageReactionUpdated instance) {
-  final val = <String, dynamic>{
-    'chat': instance.chat.toJson(),
-    'message_id': instance.messageId,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('user', instance.user?.toJson());
-  writeNotNull('actor_chat', instance.actorChat?.toJson());
-  val['date'] = instance.date;
-  val['old_reaction'] = instance.oldReaction.map((e) => e.toJson()).toList();
-  val['new_reaction'] = instance.newReaction.map((e) => e.toJson()).toList();
-  return val;
-}
-
-MessageReactionCountUpdated _$MessageReactionCountUpdatedFromJson(
-        Map<String, dynamic> json) =>
-    MessageReactionCountUpdated(
-      chat: Chat.fromJson(json['chat'] as Map<String, dynamic>),
-      messageId: json['message_id'] as int,
-      date: json['date'] as int,
-      reactions: (json['reactions'] as List<dynamic>)
-          .map((e) => ReactionCount.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$MessageReactionCountUpdatedToJson(
-        MessageReactionCountUpdated instance) =>
-    <String, dynamic>{
-      'chat': instance.chat.toJson(),
-      'message_id': instance.messageId,
-      'date': instance.date,
-      'reactions': instance.reactions.map((e) => e.toJson()).toList(),
-    };
-
-ReactionTypeCustomEmoji _$ReactionTypeCustomEmojiFromJson(
-        Map<String, dynamic> json) =>
-    ReactionTypeCustomEmoji(
-      type: $enumDecodeNullable(_$ReactionTypeTypeEnumMap, json['type']) ??
-          ReactionTypeType.customEmoji,
-      customEmojiId: json['custom_emoji_id'] as String,
-    );
-
-Map<String, dynamic> _$ReactionTypeCustomEmojiToJson(
-        ReactionTypeCustomEmoji instance) =>
-    <String, dynamic>{
-      'type': _$ReactionTypeTypeEnumMap[instance.type]!,
-      'custom_emoji_id': instance.customEmojiId,
-    };
-
 ChatMemberAdministrator _$ChatMemberAdministratorFromJson(
         Map<String, dynamic> json) =>
     ChatMemberAdministrator(
@@ -1199,6 +1008,111 @@ Map<String, dynamic> _$EncryptedPassportElementToJson(
   return val;
 }
 
+ExternalReplyInfo _$ExternalReplyInfoFromJson(Map<String, dynamic> json) =>
+    ExternalReplyInfo(
+      origin: MessageOrigin.fromJson(json['origin'] as Map<String, dynamic>),
+      chat: json['chat'] == null
+          ? null
+          : Chat.fromJson(json['chat'] as Map<String, dynamic>),
+      messageId: json['message_id'] as int?,
+      linkPreviewOptions: json['link_preview_options'] == null
+          ? null
+          : LinkPreviewOptions.fromJson(
+              json['link_preview_options'] as Map<String, dynamic>),
+      animation: json['animation'] == null
+          ? null
+          : Animation.fromJson(json['animation'] as Map<String, dynamic>),
+      audio: json['audio'] == null
+          ? null
+          : Audio.fromJson(json['audio'] as Map<String, dynamic>),
+      document: json['document'] == null
+          ? null
+          : Document.fromJson(json['document'] as Map<String, dynamic>),
+      photo: (json['photo'] as List<dynamic>?)
+          ?.map((e) => PhotoSize.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      sticker: json['sticker'] == null
+          ? null
+          : Sticker.fromJson(json['sticker'] as Map<String, dynamic>),
+      story: json['story'] == null
+          ? null
+          : Story.fromJson(json['story'] as Map<String, dynamic>),
+      video: json['video'] == null
+          ? null
+          : Video.fromJson(json['video'] as Map<String, dynamic>),
+      videoNote: json['video_note'] == null
+          ? null
+          : VideoNote.fromJson(json['video_note'] as Map<String, dynamic>),
+      voice: json['voice'] == null
+          ? null
+          : Voice.fromJson(json['voice'] as Map<String, dynamic>),
+      hasMediaSpoiler: json['has_media_spoiler'] as bool?,
+      contact: json['contact'] == null
+          ? null
+          : Contact.fromJson(json['contact'] as Map<String, dynamic>),
+      dice: json['dice'] == null
+          ? null
+          : Dice.fromJson(json['dice'] as Map<String, dynamic>),
+      game: json['game'] == null
+          ? null
+          : Game.fromJson(json['game'] as Map<String, dynamic>),
+      giveaway: json['giveaway'] == null
+          ? null
+          : Giveaway.fromJson(json['giveaway'] as Map<String, dynamic>),
+      giveawayWinners: json['giveaway_winners'] == null
+          ? null
+          : GiveawayWinners.fromJson(
+              json['giveaway_winners'] as Map<String, dynamic>),
+      invoice: json['invoice'] == null
+          ? null
+          : Invoice.fromJson(json['invoice'] as Map<String, dynamic>),
+      location: json['location'] == null
+          ? null
+          : Location.fromJson(json['location'] as Map<String, dynamic>),
+      poll: json['poll'] == null
+          ? null
+          : Poll.fromJson(json['poll'] as Map<String, dynamic>),
+      venue: json['venue'] == null
+          ? null
+          : Venue.fromJson(json['venue'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$ExternalReplyInfoToJson(ExternalReplyInfo instance) {
+  final val = <String, dynamic>{
+    'origin': instance.origin.toJson(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('chat', instance.chat?.toJson());
+  writeNotNull('message_id', instance.messageId);
+  writeNotNull('link_preview_options', instance.linkPreviewOptions?.toJson());
+  writeNotNull('animation', instance.animation?.toJson());
+  writeNotNull('audio', instance.audio?.toJson());
+  writeNotNull('document', instance.document?.toJson());
+  writeNotNull('photo', instance.photo?.map((e) => e.toJson()).toList());
+  writeNotNull('sticker', instance.sticker?.toJson());
+  writeNotNull('story', instance.story?.toJson());
+  writeNotNull('video', instance.video?.toJson());
+  writeNotNull('video_note', instance.videoNote?.toJson());
+  writeNotNull('voice', instance.voice?.toJson());
+  writeNotNull('has_media_spoiler', instance.hasMediaSpoiler);
+  writeNotNull('contact', instance.contact?.toJson());
+  writeNotNull('dice', instance.dice?.toJson());
+  writeNotNull('game', instance.game?.toJson());
+  writeNotNull('giveaway', instance.giveaway?.toJson());
+  writeNotNull('giveaway_winners', instance.giveawayWinners?.toJson());
+  writeNotNull('invoice', instance.invoice?.toJson());
+  writeNotNull('location', instance.location?.toJson());
+  writeNotNull('poll', instance.poll?.toJson());
+  writeNotNull('venue', instance.venue?.toJson());
+  return val;
+}
+
 File _$FileFromJson(Map<String, dynamic> json) => File(
       fileId: json['file_id'] as String,
       fileUniqueId: json['file_unique_id'] as String,
@@ -1388,6 +1302,87 @@ GeneralForumTopicUnhidden _$GeneralForumTopicUnhiddenFromJson(
 Map<String, dynamic> _$GeneralForumTopicUnhiddenToJson(
         GeneralForumTopicUnhidden instance) =>
     <String, dynamic>{};
+
+GiveawayWinners _$GiveawayWinnersFromJson(Map<String, dynamic> json) =>
+    GiveawayWinners(
+      chats: (json['chats'] as List<dynamic>)
+          .map((e) => Chat.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      giveawayMessageId: json['giveaway_message_id'] as int,
+      winnersSelectionDate: json['winners_selection_date'] as int,
+      winnerCount: json['winner_count'] as int,
+      winners: (json['winners'] as List<dynamic>)
+          .map((e) => User.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      additionalChatCount: json['additional_chat_count'] as int?,
+      premiumSubscriptionMonthCount:
+          json['premium_subscription_month_count'] as int?,
+      unclaimedPrizeCount: json['unclaimed_prize_count'] as int?,
+      onlyNewMembers: json['only_new_members'] as bool?,
+      wasRefunded: json['was_refunded'] as bool?,
+      prizeDescription: json['prize_description'] as String?,
+    );
+
+Map<String, dynamic> _$GiveawayWinnersToJson(GiveawayWinners instance) {
+  final val = <String, dynamic>{
+    'chats': instance.chats.map((e) => e.toJson()).toList(),
+    'giveaway_message_id': instance.giveawayMessageId,
+    'winners_selection_date': instance.winnersSelectionDate,
+    'winner_count': instance.winnerCount,
+    'winners': instance.winners.map((e) => e.toJson()).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('additional_chat_count', instance.additionalChatCount);
+  writeNotNull('premium_subscription_month_count',
+      instance.premiumSubscriptionMonthCount);
+  writeNotNull('unclaimed_prize_count', instance.unclaimedPrizeCount);
+  writeNotNull('only_new_members', instance.onlyNewMembers);
+  writeNotNull('was_refunded', instance.wasRefunded);
+  writeNotNull('prize_description', instance.prizeDescription);
+  return val;
+}
+
+Giveaway _$GiveawayFromJson(Map<String, dynamic> json) => Giveaway(
+      chats: (json['chats'] as List<dynamic>)
+          .map((e) => Chat.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      winnersSelectionDate: json['winners_selection_date'] as int,
+      winnerCount: json['winner_count'] as int,
+      onlyNewMembers: json['only_new_members'] as bool?,
+      hasPublicWinners: json['has_public_winners'] as bool?,
+      prizeDescription: json['prize_description'] as String?,
+      premiumSubscriptionMonthCount:
+          (json['premium_subscription_month_count'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList(),
+    );
+
+Map<String, dynamic> _$GiveawayToJson(Giveaway instance) {
+  final val = <String, dynamic>{
+    'chats': instance.chats.map((e) => e.toJson()).toList(),
+    'winners_selection_date': instance.winnersSelectionDate,
+    'winner_count': instance.winnerCount,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('only_new_members', instance.onlyNewMembers);
+  writeNotNull('has_public_winners', instance.hasPublicWinners);
+  writeNotNull('prize_description', instance.prizeDescription);
+  writeNotNull('premium_subscription_month_count',
+      instance.premiumSubscriptionMonthCount);
+  return val;
+}
 
 InlineKeyboardButton _$InlineKeyboardButtonFromJson(
         Map<String, dynamic> json) =>
@@ -3191,6 +3186,32 @@ Map<String, dynamic> _$LabeledPriceToJson(LabeledPrice instance) =>
       'amount': instance.amount,
     };
 
+LinkPreviewOptions _$LinkPreviewOptionsFromJson(Map<String, dynamic> json) =>
+    LinkPreviewOptions(
+      isDisabled: json['is_disabled'] as bool?,
+      url: json['url'] as String?,
+      preferSmallMedia: json['prefer_small_media'] as bool?,
+      preferLargeMedia: json['prefer_large_media'] as bool?,
+      showAboveText: json['show_above_text'] as bool?,
+    );
+
+Map<String, dynamic> _$LinkPreviewOptionsToJson(LinkPreviewOptions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('is_disabled', instance.isDisabled);
+  writeNotNull('url', instance.url);
+  writeNotNull('prefer_small_media', instance.preferSmallMedia);
+  writeNotNull('prefer_large_media', instance.preferLargeMedia);
+  writeNotNull('show_above_text', instance.showAboveText);
+  return val;
+}
+
 Location _$LocationFromJson(Map<String, dynamic> json) => Location(
       longitude: (json['longitude'] as num).toDouble(),
       latitude: (json['latitude'] as num).toDouble(),
@@ -3362,6 +3383,86 @@ MessageId _$MessageIdFromJson(Map<String, dynamic> json) => MessageId(
 Map<String, dynamic> _$MessageIdToJson(MessageId instance) => <String, dynamic>{
       'message_id': instance.messageId,
     };
+
+MessageOrigin _$MessageOriginFromJson(Map<String, dynamic> json) =>
+    MessageOrigin(
+      type: $enumDecode(_$MessageOriginTypeEnumMap, json['type']),
+      date: json['date'] as int,
+    );
+
+Map<String, dynamic> _$MessageOriginToJson(MessageOrigin instance) =>
+    <String, dynamic>{
+      'type': _$MessageOriginTypeEnumMap[instance.type]!,
+      'date': instance.date,
+    };
+
+const _$MessageOriginTypeEnumMap = {
+  MessageOriginType.user: 'user',
+  MessageOriginType.hiddenUser: 'hidden_user',
+  MessageOriginType.chat: 'chat',
+  MessageOriginType.channel: 'channel',
+};
+
+MessageReactionCountUpdated _$MessageReactionCountUpdatedFromJson(
+        Map<String, dynamic> json) =>
+    MessageReactionCountUpdated(
+      chat: Chat.fromJson(json['chat'] as Map<String, dynamic>),
+      messageId: json['message_id'] as int,
+      date: json['date'] as int,
+      reactions: (json['reactions'] as List<dynamic>)
+          .map((e) => ReactionCount.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$MessageReactionCountUpdatedToJson(
+        MessageReactionCountUpdated instance) =>
+    <String, dynamic>{
+      'chat': instance.chat.toJson(),
+      'message_id': instance.messageId,
+      'date': instance.date,
+      'reactions': instance.reactions.map((e) => e.toJson()).toList(),
+    };
+
+MessageReactionUpdated _$MessageReactionUpdatedFromJson(
+        Map<String, dynamic> json) =>
+    MessageReactionUpdated(
+      chat: Chat.fromJson(json['chat'] as Map<String, dynamic>),
+      messageId: json['message_id'] as int,
+      user: json['user'] == null
+          ? null
+          : User.fromJson(json['user'] as Map<String, dynamic>),
+      actorChat: json['actor_chat'] == null
+          ? null
+          : Chat.fromJson(json['actor_chat'] as Map<String, dynamic>),
+      date: json['date'] as int,
+      oldReaction: (json['old_reaction'] as List<dynamic>)
+          .map((e) => ReactionType.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      newReaction: (json['new_reaction'] as List<dynamic>)
+          .map((e) => ReactionType.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$MessageReactionUpdatedToJson(
+    MessageReactionUpdated instance) {
+  final val = <String, dynamic>{
+    'chat': instance.chat.toJson(),
+    'message_id': instance.messageId,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('user', instance.user?.toJson());
+  writeNotNull('actor_chat', instance.actorChat?.toJson());
+  val['date'] = instance.date;
+  val['old_reaction'] = instance.oldReaction.map((e) => e.toJson()).toList();
+  val['new_reaction'] = instance.newReaction.map((e) => e.toJson()).toList();
+  return val;
+}
 
 Message _$MessageFromJson(Map<String, dynamic> json) => Message(
       messageId: json['message_id'] as int,
@@ -4058,6 +4159,136 @@ Map<String, dynamic> _$ProximityAlertTriggeredToJson(
       'traveler': instance.traveler.toJson(),
       'watcher': instance.watcher.toJson(),
       'distance': instance.distance,
+    };
+
+ReactionCount _$ReactionCountFromJson(Map<String, dynamic> json) =>
+    ReactionCount(
+      type: ReactionType.fromJson(json['type'] as Map<String, dynamic>),
+      totalCount: json['total_count'] as int,
+    );
+
+Map<String, dynamic> _$ReactionCountToJson(ReactionCount instance) =>
+    <String, dynamic>{
+      'type': instance.type.toJson(),
+      'total_count': instance.totalCount,
+    };
+
+ReactionTypeCustomEmoji _$ReactionTypeCustomEmojiFromJson(
+        Map<String, dynamic> json) =>
+    ReactionTypeCustomEmoji(
+      type: $enumDecodeNullable(_$ReactionTypeTypeEnumMap, json['type']) ??
+          ReactionTypeType.customEmoji,
+      customEmojiId: json['custom_emoji_id'] as String,
+    );
+
+Map<String, dynamic> _$ReactionTypeCustomEmojiToJson(
+        ReactionTypeCustomEmoji instance) =>
+    <String, dynamic>{
+      'type': _$ReactionTypeTypeEnumMap[instance.type]!,
+      'custom_emoji_id': instance.customEmojiId,
+    };
+
+const _$ReactionTypeTypeEnumMap = {
+  ReactionTypeType.emoji: 'emoji',
+  ReactionTypeType.customEmoji: 'custom_emoji',
+};
+
+ReactionTypeEmoji _$ReactionTypeEmojiFromJson(Map<String, dynamic> json) =>
+    ReactionTypeEmoji(
+      type: $enumDecodeNullable(_$ReactionTypeTypeEnumMap, json['type']) ??
+          ReactionTypeType.emoji,
+      emoji: $enumDecode(_$ReactionEmojiEnumMap, json['emoji']),
+    );
+
+Map<String, dynamic> _$ReactionTypeEmojiToJson(ReactionTypeEmoji instance) =>
+    <String, dynamic>{
+      'type': _$ReactionTypeTypeEnumMap[instance.type]!,
+      'emoji': _$ReactionEmojiEnumMap[instance.emoji]!,
+    };
+
+const _$ReactionEmojiEnumMap = {
+  ReactionEmoji.thumbsUp: '👍',
+  ReactionEmoji.thumbsDown: '👎',
+  ReactionEmoji.heart: '❤',
+  ReactionEmoji.fire: '🔥',
+  ReactionEmoji.inLove: '🥰',
+  ReactionEmoji.clappingHands: '👏',
+  ReactionEmoji.grinningFace: '😁',
+  ReactionEmoji.thinkingFace: '🤔',
+  ReactionEmoji.mindBlown: '🤯',
+  ReactionEmoji.screamingInFear: '😱',
+  ReactionEmoji.swearing: '🤬',
+  ReactionEmoji.crying: '😢',
+  ReactionEmoji.partyPopper: '🎉',
+  ReactionEmoji.starStruck: '🤩',
+  ReactionEmoji.vomiting: '🤮',
+  ReactionEmoji.poo: '💩',
+  ReactionEmoji.prayingHands: '🙏',
+  ReactionEmoji.okHand: '👌',
+  ReactionEmoji.dove: '🕊',
+  ReactionEmoji.clownFace: '🤡',
+  ReactionEmoji.yawningFace: '🥱',
+  ReactionEmoji.woozyFace: '🥴',
+  ReactionEmoji.heartEyes: '😍',
+  ReactionEmoji.whale: '🐳',
+  ReactionEmoji.heartOnFire: '❤‍🔥',
+  ReactionEmoji.newMoonFace: '🌚',
+  ReactionEmoji.hotDog: '🌭',
+  ReactionEmoji.hundredPoints: '💯',
+  ReactionEmoji.rollingOnTheFloorLaughing: '🤣',
+  ReactionEmoji.lightningBolt: '⚡',
+  ReactionEmoji.banana: '🍌',
+  ReactionEmoji.trophy: '🏆',
+  ReactionEmoji.brokenHeart: '💔',
+  ReactionEmoji.raisedEyebrow: '🤨',
+  ReactionEmoji.neutralFace: '😐',
+  ReactionEmoji.strawberry: '🍓',
+  ReactionEmoji.bottleWithPoppingCork: '🍾',
+  ReactionEmoji.kissMark: '💋',
+  ReactionEmoji.middleFinger: '🖕',
+  ReactionEmoji.smilingFaceWithHorns: '😈',
+  ReactionEmoji.sleepingFace: '😴',
+  ReactionEmoji.loudlyCryingFace: '😭',
+  ReactionEmoji.nerdFace: '🤓',
+  ReactionEmoji.ghost: '👻',
+  ReactionEmoji.manTechnologist: '👨‍💻',
+  ReactionEmoji.eyes: '👀',
+  ReactionEmoji.jackOLantern: '🎃',
+  ReactionEmoji.seeNoEvilMonkey: '🙈',
+  ReactionEmoji.smilingFaceWithHalo: '😇',
+  ReactionEmoji.fearfulFace: '😨',
+  ReactionEmoji.handshake: '🤝',
+  ReactionEmoji.writingHand: '✍',
+  ReactionEmoji.huggingFace: '🤗',
+  ReactionEmoji.salutingFace: '🫡',
+  ReactionEmoji.santaClaus: '🎅',
+  ReactionEmoji.christmasTree: '🎄',
+  ReactionEmoji.snowman: '☃',
+  ReactionEmoji.nailPolish: '💅',
+  ReactionEmoji.zanyFace: '🤪',
+  ReactionEmoji.moai: '🗿',
+  ReactionEmoji.cool: '🆒',
+  ReactionEmoji.heartWithArrow: '💘',
+  ReactionEmoji.hearNoEvilMonkey: '🙉',
+  ReactionEmoji.unicorn: '🦄',
+  ReactionEmoji.faceBlowingAKiss: '😘',
+  ReactionEmoji.pill: '💊',
+  ReactionEmoji.speakNoEvilMonkey: '🙊',
+  ReactionEmoji.sunglasses: '😎',
+  ReactionEmoji.alienMonster: '👾',
+  ReactionEmoji.manShrugging: '🤷‍♂️',
+  ReactionEmoji.personShrugging: '🤷',
+  ReactionEmoji.womanShrugging: '🤷‍♀️',
+  ReactionEmoji.poutingFace: '😡',
+};
+
+ReactionType _$ReactionTypeFromJson(Map<String, dynamic> json) => ReactionType(
+      type: $enumDecode(_$ReactionTypeTypeEnumMap, json['type']),
+    );
+
+Map<String, dynamic> _$ReactionTypeToJson(ReactionType instance) =>
+    <String, dynamic>{
+      'type': _$ReactionTypeTypeEnumMap[instance.type]!,
     };
 
 ReplyKeyboardMarkup _$ReplyKeyboardMarkupFromJson(Map<String, dynamic> json) =>

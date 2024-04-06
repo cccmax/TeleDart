@@ -26,7 +26,9 @@ class ReactionTypeCustomEmoji implements ReactionType {
   @override
   ReactionTypeType type;
   String customEmojiId;
+
   ReactionTypeCustomEmoji({this.type = ReactionTypeType.customEmoji, required this.customEmojiId});
+  
   factory ReactionTypeCustomEmoji.fromJson(Map<String, dynamic> json) =>
       _$ReactionTypeCustomEmojiFromJson(json);
   @override

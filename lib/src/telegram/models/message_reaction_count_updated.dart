@@ -27,12 +27,19 @@ class MessageReactionCountUpdated {
   int messageId;
   int date;
   List<ReactionCount> reactions;
+
   MessageReactionCountUpdated({
     required this.chat,
     required this.messageId,
     required this.date,
     required this.reactions,
   });
+
+ @JsonKey(includeFromJson: false, includeToJson: false)
+  DateTime get date_ => TimeHelper.toDateTime(date);
+  set date_(DateTime dateTime) =>
+      date = TimeHelper.toUnixTime(dateTime);
+
   factory MessageReactionCountUpdated.fromJson(Map<String, dynamic> json) =>
       _$MessageReactionCountUpdatedFromJson(json);
   Map<String, dynamic> toJson() => _$MessageReactionCountUpdatedToJson(this);

@@ -18,20 +18,26 @@
 
 part of '../model.dart';
 
-/// Represents a reaction added to a message along with the number of times it was added.
+/// Describes the options used for link preview generation.
 ///
-/// https://core.telegram.org/bots/api#reactioncount
+/// https://core.telegram.org/bots/api#linkpreviewoptions
 @JsonSerializable(fieldRename: FieldRename.snake)
-class ReactionCount {
-  ReactionType type;
-  int totalCount;
+class LinkPreviewOptions {
+  bool? isDisabled;
+  String? url;
+  bool? preferSmallMedia;
+  bool? preferLargeMedia;
+  bool? showAboveText;
 
-  ReactionCount({
-    required this.type,
-    required this.totalCount,
+  LinkPreviewOptions({
+    this.isDisabled,
+    this.url,
+    this.preferSmallMedia,
+    this.preferLargeMedia,
+    this.showAboveText,
   });
 
-  factory ReactionCount.fromJson(Map<String, dynamic> json) =>
-      _$ReactionCountFromJson(json);
-  Map<String, dynamic> toJson() => _$ReactionCountToJson(this);
+  factory LinkPreviewOptions.fromJson(Map<String, dynamic> json) =>
+      _$LinkPreviewOptionsFromJson(json);
+  Map<String, dynamic> toJson() => _$LinkPreviewOptionsToJson(this);
 }

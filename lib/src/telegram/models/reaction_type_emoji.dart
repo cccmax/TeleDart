@@ -180,7 +180,9 @@ class ReactionTypeEmoji implements ReactionType {
   @override
   ReactionTypeType type;
   ReactionEmoji emoji;
+
   ReactionTypeEmoji({this.type = ReactionTypeType.emoji, required this.emoji});
+  
   factory ReactionTypeEmoji.fromJson(Map<String, dynamic> json) =>
       _$ReactionTypeEmojiFromJson(json);
   @override

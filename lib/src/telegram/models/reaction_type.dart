@@ -39,7 +39,9 @@ extension ReactionTypeTypeExtenson on ReactionTypeType {
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ReactionType {
   ReactionTypeType type;
+
   ReactionType({required this.type});
+  
   factory ReactionType.fromJson(Map<String, dynamic> json) =>
       _$ReactionTypeFromJson(json);
   Map<String, dynamic> toJson() => _$ReactionTypeToJson(this);
