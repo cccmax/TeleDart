@@ -32,7 +32,7 @@ class MessageOriginChannel implements MessageOrigin {
   String? authorSignature;
 
   MessageOriginChannel({
-    required this.type,
+    this.type = MessageOriginType.channel,
     required this.date,
     required this.chat,
     required this.messageId,

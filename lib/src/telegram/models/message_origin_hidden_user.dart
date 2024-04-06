@@ -30,7 +30,7 @@ class MessageOriginHiddenUser implements MessageOrigin {
   String senderUserName;
 
   MessageOriginHiddenUser({
-    required this.type,
+    this.type = MessageOriginType.hiddenUser,
     required this.date,
     required this.senderUserName,
   });

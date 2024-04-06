@@ -30,7 +30,7 @@ class MessageOriginUser implements MessageOrigin {
   User senderUser;
 
   MessageOriginUser({
-    required this.type,
+    this.type = MessageOriginType.user,
     required this.date,
     required this.senderUser,
   });

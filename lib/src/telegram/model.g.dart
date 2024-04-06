@@ -3387,7 +3387,8 @@ Map<String, dynamic> _$MessageIdToJson(MessageId instance) => <String, dynamic>{
 MessageOriginChannel _$MessageOriginChannelFromJson(
         Map<String, dynamic> json) =>
     MessageOriginChannel(
-      type: $enumDecode(_$MessageOriginTypeEnumMap, json['type']),
+      type: $enumDecodeNullable(_$MessageOriginTypeEnumMap, json['type']) ??
+          MessageOriginType.channel,
       date: json['date'] as int,
       chat: Chat.fromJson(json['chat'] as Map<String, dynamic>),
       messageId: json['message_id'] as int,
@@ -3422,7 +3423,8 @@ const _$MessageOriginTypeEnumMap = {
 
 MessageOriginChat _$MessageOriginChatFromJson(Map<String, dynamic> json) =>
     MessageOriginChat(
-      type: $enumDecode(_$MessageOriginTypeEnumMap, json['type']),
+      type: $enumDecodeNullable(_$MessageOriginTypeEnumMap, json['type']) ??
+          MessageOriginType.chat,
       date: json['date'] as int,
       senderChat: Chat.fromJson(json['sender_chat'] as Map<String, dynamic>),
       authorSignature: json['author_signature'] as String?,
@@ -3448,7 +3450,8 @@ Map<String, dynamic> _$MessageOriginChatToJson(MessageOriginChat instance) {
 MessageOriginHiddenUser _$MessageOriginHiddenUserFromJson(
         Map<String, dynamic> json) =>
     MessageOriginHiddenUser(
-      type: $enumDecode(_$MessageOriginTypeEnumMap, json['type']),
+      type: $enumDecodeNullable(_$MessageOriginTypeEnumMap, json['type']) ??
+          MessageOriginType.hiddenUser,
       date: json['date'] as int,
       senderUserName: json['sender_user_name'] as String,
     );
@@ -3463,7 +3466,8 @@ Map<String, dynamic> _$MessageOriginHiddenUserToJson(
 
 MessageOriginUser _$MessageOriginUserFromJson(Map<String, dynamic> json) =>
     MessageOriginUser(
-      type: $enumDecode(_$MessageOriginTypeEnumMap, json['type']),
+      type: $enumDecodeNullable(_$MessageOriginTypeEnumMap, json['type']) ??
+          MessageOriginType.user,
       date: json['date'] as int,
       senderUser: User.fromJson(json['sender_user'] as Map<String, dynamic>),
     );

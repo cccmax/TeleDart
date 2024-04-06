@@ -31,7 +31,7 @@ class MessageOriginChat implements MessageOrigin {
   String? authorSignature;
 
   MessageOriginChat({
-    required this.type,
+    this.type = MessageOriginType.chat,
     required this.date,
     required this.senderChat,
     this.authorSignature,
