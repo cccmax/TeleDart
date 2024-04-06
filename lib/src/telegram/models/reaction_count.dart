@@ -31,6 +31,5 @@ class ReactionCount {
   });
   factory ReactionCount.fromJson(Map<String, dynamic> json) =>
       _$ReactionCountFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$ReactionCountToJson(this);
 }

@@ -41,6 +41,5 @@ class MessageReactionUpdated {
   });
   factory MessageReactionUpdated.fromJson(Map<String, dynamic> json) =>
       _$MessageReactionUpdatedFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$MessageReactionUpdatedToJson(this);
 }

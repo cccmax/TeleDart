@@ -35,6 +35,5 @@ class MessageReactionCountUpdated {
   });
   factory MessageReactionCountUpdated.fromJson(Map<String, dynamic> json) =>
       _$MessageReactionCountUpdatedFromJson(json);
-  @override
   Map<String, dynamic> toJson() => _$MessageReactionCountUpdatedToJson(this);
 }
