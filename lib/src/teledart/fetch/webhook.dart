@@ -68,10 +68,10 @@ class Webhook extends AbstractUpdateFetcher {
       this.allowedUpdates,
       this.dropPendingUpdates,
       this.secretToken}) {
-    if (![443, 80, 88, 8443].contains(port)) {
-      throw WebhookException(
-          'Ports currently supported for Webhooks: 443, 80, 88, 8443.');
-    }
+    // if (![443, 80, 88, 8443].contains(port)) {
+    //   throw WebhookException(
+    //       'Ports currently supported for Webhooks: 443, 80, 88, 8443.');
+    // }
     if (maxConnections > 100 || maxConnections < 1) {
       throw WebhookException('Connection limit must between 1 and 100.');
     }
