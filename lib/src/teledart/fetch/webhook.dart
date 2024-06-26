@@ -141,15 +141,18 @@ class Webhook extends AbstractUpdateFetcher {
         var isAuthorised = secretToken == null ||
             secretToken ==
                 request.headers.value('X-Telegram-Bot-Api-Secret-Token');
-
+        print('Webhook request received method: ${request.method} path: ${request.uri.path} length: ${request.contentLength} isAuthorised: $isAuthorised isPostRequest: $isPostRequest');
         if (isPostRequest && isAuthorised) {
+          print('Webhook request received AAAA');
           request.cast<List<int>>().transform(utf8.decoder).join().then((data) {
+            print('Webhook request received AAAA data = $data');
             emitUpdate(Update.fromJson(jsonDecode(data)));
             request.response
               ..write(jsonEncode({'ok': true}))
               ..close();
           });
         } else {
+          print('Webhook request received BBBB');
           request.response
             ..statusCode = io.HttpStatus.methodNotAllowed
             ..write(jsonEncode({'ok': false}))
