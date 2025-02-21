@@ -120,18 +120,21 @@ class LongPolling extends AbstractUpdateFetcher {
     }
   }
 
-  void _onRecursivePollingError(Object error) {
+  Future _onRecursivePollingError(Object error) async {
     // `error` should be `Error` or `Exception` type
     print('${DateTime.now()} $error');
     print('Retrying in ${retryDelay.inSeconds} second(s)...');
-    _delayRetry();
+    await _delayRetry();
     _doubleRetryDelay();
     _recursivePolling();
   }
 
   void _resetRetryDelay() => retryDelay = defaultRetryDelay;
   void _doubleRetryDelay() => retryDelay *= 2;
-  void _delayRetry() => sleep(retryDelay);
+  // void _delayRetry() => sleep(retryDelay);
+  Future _delayRetry() async {
+    await Future.delayed(retryDelay);
+  }
 }
 
 class LongPollingException implements Exception {
